@@ -313,3 +313,57 @@ h6,
   background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(./img/bg.jpg) center center no-repeat;
   background-size: cover;
 }
+
+.addCake-form{
+
+  width: 60%;
+  background-image: url("/src/img/bg.jpg");
+  background-size: cover;
+  color: #2B2825;
+  padding: 40px;
+  border-radius: 15px;
+  margin: auto;
+  border: 2px solid #E88F2A;
+
+}
+
+.addCake-form input{
+
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 12px;
+  border: 1px solid #E88F2A;
+  background-color: #FFFFFF;
+  color: #2B2825;
+}
+
+.addCake-form textarea{
+
+  width:100%;
+  height:160px;
+  border-radius:8px;
+  border: 1px solid #E88F2A;
+  padding-left: 12px;
+  background-color: #FFF;
+  color: #2B2825;
+
+
+}
+
+.addCake-form h3, .addCake-form h2{
+
+  color: #E88F2A;
+}
+
+.select-menu {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #E88F2A;
+  background-color: #33312E; 
+  color: #2B2825;
+
+}
+
+
