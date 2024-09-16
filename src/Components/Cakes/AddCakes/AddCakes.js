@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Select from 'react-select';
 import { useState } from 'react';
+import axios from 'axios';
+import { Formik, useFormik } from 'formik';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import { cakeSchema } from '../../../Validation/AddCakeValidation';
 export default function AddCakes() {
 
     const [selectedOption, setSelectedOption] = useState(null);
+    const [image, setImage] = useState("");
+
+
+    const cakeNameRef = useRef();
+    const priceRef = useRef();
+    const flavorRef = useRef();
+    const descriptionRef = useRef();
+
 
 
     const options = [
@@ -30,20 +43,87 @@ export default function AddCakes() {
         }),
       };
 
+
+
+      function readFile(e) {
+        let files = e.target.files;
+        for (let i = 0; i < files.length; i++) {
+          (function (file) {
+            var reader = new FileReader();
+            reader.onload = () => {
+                console.log(reader.result);
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+          })(files[i]);
+        }
+      }
+
+      const uploadCake = () =>{
+
+        const payload = {
+
+          cakeName: cakeNameRef.current.value,
+          price : priceRef.current.value,
+          image: image,
+          description: descriptionRef.current.value,
+          flavor: flavorRef.current.value,
+          category: selectedOption.value,
+        }
+        axios.post("http://localhost:8080/cakes", payload).then((res)=>{
+          console.log(res)
+          NotificationManager.success("Cake has been uploaded successfully!");
+
+        }).catch((e)=>{
+          console.log(e);
+          NotificationManager.error("Something went wrong!")
+
+        })
+      }
+
+      const initialValues = {
+
+        cakeName: "",
+        price: null,
+        flavor: "",
+        description: "",
+        file: "",
+
+      }
+
+      const {values, errors, handleSubmit, handleChange, handleBlur} = useFormik({
+
+        initialValues: initialValues,
+        validationSchema: cakeSchema,
+        onSubmit: ()=>{
+          uploadCake();
+        }
+      })
+
+      
+      
+
+
   return (
     
     <div className='addCake-form'>
+      <NotificationContainer/>
       <h2>Add a Cake: </h2>
-      <input type="text" name="cakeName" placeholder='Cake Name...'/>
+      <form onSubmit={handleSubmit}>
+        <p className='errors'>{errors.cakeName}</p>
+      <input type="text" name="cakeName" placeholder='Cake Name...' value={values.cakeName} onChange={handleChange} onBlur={handleBlur} ref={cakeNameRef}/>
       <br/>
       <br/>
-      <input type="number" name="price" placeholder='Price...'/>
+      <p className='errors'>{errors.price}</p>
+      <input type="number" name="price" placeholder='Price...' ref={priceRef} value={values.price} onChange={handleChange} onBlur={handleBlur}/>
       <br/>
       <br/>
-      <input type="text" name="flavor" placeholder='Flavor...'/>
+      <p className='errors'>{errors.flavor}</p>
+      <input type="text" name="flavor" placeholder='Flavor...' ref={flavorRef} value={values.flavor} onChange={handleChange} onBlur={handleBlur}/>
       <br/>
       <br/>
-      <textarea name="description" placeholder='Description...'/>
+      <p className='errors'>{errors.description}</p>
+      <textarea name="description" placeholder='Description...' ref={descriptionRef} value={values.description} onChange={handleChange} onBlur={handleBlur}/>
       <br/>
       <br/>
       <h3>Choose a Category: </h3>
@@ -56,10 +136,19 @@ export default function AddCakes() {
       />
       <br/>
       <br/>
-      <input type="file"/>
+      <p className='errors'>{errors.file}</p>
+      <input type="file" name="file" onChange={(e)=>{
+        readFile(e)
+        handleChange(e)
+        }} value={values.file} onBlur={handleBlur}/>
+      
       <br/>
       <br/>
-      <button className='btn btn-primary'>Add a Cake</button>
+      {image!== "" && <img src={image}  alt="cake" width={300}/>}
+      <br/>
+      <br/>
+      <button className='btn btn-primary' type="submit" >Add a Cake</button>
+      </form>
     </div>
    
   )
