@@ -11,6 +11,7 @@ import Offer from './Components/Offer';
 import Testimonial from './Components/Testimonial';
 import Footer from './Components/Footer';
 import AddCakes from './Components/Cakes/AddCakes/AddCakes';
+import AllCakes from './Components/Cakes/AddCakes/AllCakes/AllCakes';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<><Navbar/> <Hero/> <About/> <Facts/> <Products/> <Service/> <Team/> <Offer/> <Testimonial/><Footer/></>}/>
-      <Route path='/addcakes' element={<><Navbar/> <Hero/> <AddCakes/> <Footer/></>}/> 
+      <Route path='/addcakes' element={<><Navbar/> <Hero/> <AddCakes/> <Footer/></>}/>
+      <Route path='/cakes' element={<><Navbar/> <Hero/> <AllCakes/> <Footer/></>}/> 
       
 
      

@@ -369,5 +369,77 @@ h6,
 
 .errors{
 
-  color: crimson;
+  color:crimson;
+}
+
+.file {
+
+  padding-top: 6px;
+}
+
+.cakes {
+
+width: 280px;
+padding: 20px;
+border: 3px solid #E88F29;
+background-image: url('../src/img/bg.jpg');
+background-size: cover;
+color: white;
+border-radius: 10px;
+text-align: center;
+transition: transform 0.3s ease;
+}
+
+.cakes:hover {
+  transform: scale(1.05);
+}
+.cakes h2{
+
+  color:#F6AA5B;
+  font-size: 22px;
+  margin-bottom:10px;
+}
+
+.cakes img{
+
+  width: 100%;
+  height: 200px;
+  border: 2px solid #E88F29;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.cakes p {
+
+  margin: 5px 0;
+  color: #F0F0F0;
+}
+
+.cakes span {
+
+  padding: 4px 8px;
+  background-color:#E88F29  ;
+  border-radius: 4px;
+  font-size:12px;
+}
+
+.cakes-container {
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.icon-euro {
+
+  color: #E88F29;
+  margin-right: 5px;
+}
+
+.icon-flavor {
+
+  color: #E88F29;
+  margin-right: 5px;
+  font-size: 13px;
 }
