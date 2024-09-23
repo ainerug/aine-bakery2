@@ -34,6 +34,15 @@ app.get("/cakes", async (req, res)=> {
     }
 })
 
+app.get("/cakes/:category", async (req, res)=> {
+    try {
+        const allCakes = await Cakes.find({category: req.params.category});
+        res.status(200).send(allCakes);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
 app.listen(PORT, () => {
     console.log("Api is running on PORT: "+ PORT);
 })

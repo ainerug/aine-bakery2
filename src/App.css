@@ -429,6 +429,8 @@ transition: transform 0.3s ease;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 25px;
+
+  padding: 40px;
 }
 
 .icon-euro {
@@ -442,4 +444,13 @@ transition: transform 0.3s ease;
   color: #E88F29;
   margin-right: 5px;
   font-size: 13px;
+}
+
+
+.tab-container{
+  text-align: center;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
