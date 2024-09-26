@@ -9,7 +9,7 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { cakeSchema } from "../../../../src/Validation/AddCakeValidation";
-export default function AddCakes(props) {
+export default function AddCakes() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [image, setImage] = useState("");
   const [error, setError] = useState("");

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBirthdayCake, faEuroSign } from "@fortawesome/free-solid-svg-icons";
+import { faBirthdayCake, faEuroSign, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-regular-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { NotificationContainer,NotificationManager } from "react-notifications";
 
 export default function AllCakes() {
   const [cake, setCake] = useState([]);
   const [option, setOption] = useState("birthday");
+  const navigate = useNavigate();
 
   const getAllCakes = () => {
     axios
@@ -23,9 +27,28 @@ export default function AllCakes() {
     getAllCakes();
   }, [option]);
 
+  const goToEdit = (id)=>{
+
+    navigate("/editcakes", {state: {id:id}});
+  }
+  const deleteCake = (id) =>{
+    axios.delete("http://localhost:8080/cakes/" + id).then((res)=>{
+        console.log(res)
+        NotificationManager.success("Cake has been deleted!");
+    }).catch((e)=>{
+        console.log(e);
+        NotificationManager.error("Something went wrong!");
+    })
+  }
+  
+
+
+
+
   return (
     <>
       <div className="tab-container">
+        <NotificationContainer/>
       <div
             className="section-title position-relative text-center mx-auto mb-5 pb-3"
             style={{ maxWidth: "600px" }}
@@ -66,6 +89,10 @@ export default function AllCakes() {
                 {item.flavor}
               </p>
               <span>{item.category}</span>
+              <div className="icon-container">
+                <FontAwesomeIcon icon={faEdit} className="icon-cakes" onClick={()=>{goToEdit(item._id)}}/>
+                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/>
+              </div>
             </div>
             </div>
           );

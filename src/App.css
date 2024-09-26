@@ -429,16 +429,17 @@ border-radius: 8px;
 
   margin: 5px 0;
   color: #352d27;
-  font-size: 18px;
+  font-size: 14px;
   
 }
 
 .cakes span {
 
   padding: 4px 8px;
-  background-color:#E88F2A ;
+  background-color: #e88f29;
   border-radius: 4px;
   font-size:12px;
+  font-weight: 700;
   color: white;
 }
 
@@ -453,13 +454,13 @@ border-radius: 8px;
 
 .icon-euro {
 
-  color: #E88F29;
+  color: #2b282677;;
   margin-right: 5px;
 }
 
 .icon-flavor {
 
-  color: #E88F29;
+  color: #2b282677;;
   margin-right: 5px;
   font-size: 13px;
 }
@@ -520,7 +521,27 @@ border-radius: 8px;
   color:#000000;
 }
 
+.icon-container {
+
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
 
 
+}
 
+.icon-cakes {
 
+  font-size: 20px;
+  cursor: pointer;
+  color: #2b282677;
+  
+  
+}
+
+.buttons-div{ 
+
+ display: flex;
+ justify-content: center;
+ gap: 20px;
+}

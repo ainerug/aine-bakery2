@@ -11,6 +11,7 @@ import Testimonial from './Components/Testimonial';
 import Footer from './Components/Footer';
 import AddCakes from './Components/Cakes/AddCakes/AddCakes';
 import AllCakes from './Components/Cakes/AllCakes/AllCakes';
+import EditCakes from './Components/Cakes/EditCakes/EditCakes';
 import Header from './Components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contact from './Components/Contact';
@@ -25,6 +26,7 @@ function App() {
       <Route path='/about' element={<><Navbar/> <Header headerName="About Us"/> <About/> <Facts/>  <Footer/></>}/>
       <Route path='/addcakes' element={<><Navbar/> <Header headerName="Add a Cake"/> <AddCakes/> <Footer/></>}/>
       <Route path='/cakes' element={<><Navbar/> <Header headerName="Cakes"/> <AllCakes/><Footer/></>}/>
+      <Route path='/editcakes' element={<><Navbar/> <Header headerName="Edit Cake"/> <EditCakes/> <Footer/></>}/>
       <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 
       
 
