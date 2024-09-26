@@ -1,49 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faBirthdayCake, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faBirthdayCake, faPhoneSquare,  } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const [option, setOption] = useState("home");
+
   return (
     <div>
-      <div class="container-fluid px-0 d-none d-lg-block">
-        <div class="row gx-0">
-          <div class="col-lg-4 text-center bg-secondary py-3">
-            <div class="d-inline-flex align-items-center justify-content-center">
-              <i class="bi bi-envelope fs-1 text-primary me-3"></i>
+      <div className="container-fluid px-0 d-none d-lg-block">
+        <div className="row gx-0">
+          <div className="col-lg-4 text-center bg-secondary py-3">
+            <div className="d-inline-flex align-items-center justify-content-center">
               <FontAwesomeIcon
                 icon={faEnvelope}
                 className="bi bi-envelope fs-1 text-primary me-3"
               />
-              <div class="text-start">
-                <h6 class="text-uppercase mb-1">Email Us</h6>
+              <div className="text-start">
+                <h6 className="text-uppercase mb-1">Email Us</h6>
                 <span>info@example.com</span>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 text-center bg-primary border-inner py-3">
-            <div class="d-inline-flex align-items-center justify-content-center">
-              <a href="index.html" class="navbar-brand">
-                <h1 class="m-0 text-uppercase text-white">
-                  <i class="fa fa-birthday-cake fs-1 text-dark me-3"></i>
+          <div className="col-lg-4 text-center bg-primary border-inner py-3">
+            <div className="d-inline-flex align-items-center justify-content-center">
+              <Link to="index.html" className="navbar-brand">
+                <h1 className="m-0 text-uppercase text-white">
                   <FontAwesomeIcon
                     icon={faBirthdayCake}
                     className="fa fa-birthday-cake fs-1 text-dark me-3"
                   />
                   CakeZone
                 </h1>
-              </a>
+              </Link>
             </div>
           </div>
-          <div class="col-lg-4 text-center bg-secondary py-3">
-            <div class="d-inline-flex align-items-center justify-content-center">
-              <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
-              <div class="text-start">
-                <h6 class="text-uppercase mb-1">
+          <div className="col-lg-4 text-center bg-secondary py-3">
+            <div className="d-inline-flex align-items-center justify-content-center">
+              <div className="text-start2">
+                <h6 className="text-uppercase mb-1">
                   <FontAwesomeIcon
-                    icon={faPhone}
-                    className="bi bi-phone-vibrate fs-1 text-primary me-3"
+                    icon={faPhoneSquare}
+                    className="phone-icon  text-primary me-1"
                   />
                   Call Us
                 </h6>
@@ -54,36 +53,70 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
-        <a href="index.html" class="navbar-brand d-block d-lg-none">
-          <h1 class="m-0 text-uppercase text-white">
-            <i class="fa fa-birthday-cake fs-1 text-primary me-3"></i>CakeZone
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+        <span className="navbar-brand d-block d-lg-none">
+          <h1 className=" m-0 text-uppercase text-white">
+            <FontAwesomeIcon
+              icon={faBirthdayCake}
+              className="bi birthday-cake fs-1 me-3"
+            />
+            CakeZone
           </h1>
-        </a>
+        </span>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto mx-lg-auto py-0">
-            <Link to="/" class="nav-item nav-link active">
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <div className="navbar-nav ms-auto mx-lg-auto py-0">
+            <Link
+              to="/"
+              className={`nav-item nav-link  ${
+                option === "home" ? "active" : ""
+              }`}
+              onClick={() => setOption("home")}
+            >
               Home
             </Link>
-            <Link to="/" class="nav-item nav-link">
+            <Link
+              to="/about"
+              className={`nav-item nav-link ${
+                option === "about us" ? "active" : null
+              }`}
+              onClick={() => setOption("about us")}
+            >
               About Us
             </Link>
-            <Link to="/cakes" class="nav-item nav-link">
+            <Link
+              to="/cakes"
+              className={`nav-item nav-link ${
+                option === "cakes" ? "active" : null
+              }`}
+              onClick={() => setOption("cakes")}
+            >
               Cakes
             </Link>
-            <Link to="/addcakes" class="nav-item nav-link">
-              Add Cake
+            <Link
+              to="/addcakes"
+              className={`nav-item nav-link ${
+                option === "add cake" ? "active" : null
+              }`}
+              onClick={() => setOption("add cake")}
+            >
+              Add a Cake
             </Link>
-            <Link to="/" class="nav-item nav-link">
-              Contact Us
+            <Link
+              to="/contact"
+              className={`nav-item nav-link ${
+                option === "contact us" ? "active" : null
+              }`}
+              onClick={() => setOption("contact us")}
+            >
+              <span className="contact-link">Contact Us</span>
             </Link>
           </div>
         </div>

@@ -9,7 +9,7 @@ export default function AllCakes() {
 
   const getAllCakes = () => {
     axios
-      .get("http://localhost:8080/cakes")
+      .get("http://localhost:8080/cakes/" + option)
       .then((res) => {
         console.log(res.data);
         setCake(res.data);
@@ -21,20 +21,27 @@ export default function AllCakes() {
 
   useEffect(() => {
     getAllCakes();
-  }, []);
+  }, [option]);
 
   return (
     <>
       <div className="tab-container">
-        <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
-          <li class="nav-item">
-            <span class={`nav-link cursor-pointer text-white ${option === "birthday"? "active": null}`} onClick={() => setOption("birthday")}>Birthday</span>
+      <div
+            className="section-title position-relative text-center mx-auto mb-5 pb-3"
+            style={{ maxWidth: "600px" }}
+          >
+            <h2 className="text-primary font-secondary">Cakes</h2>
+            <h1 className="display-4 text-uppercase">Eplore Our Cakes</h1>
+          </div>
+        <ul className="nav nav-pills d-inline-flex justify-content-center options-toggler text-uppercase border-inner p-4 mb-5">
+          <li className="nav-item">
+            <span className={`nav-link cursor-pointer options-toggler ${option === "birthday"? "active": " "}`} onClick={() => setOption("birthday")}>Birthday</span>
           </li>
-          <li class="nav-item">
-            <span class={`nav-link cursor-pointer text-white ${option === "wedding"? "active": null}`} onClick={() => setOption("wedding")}>Wedding</span>
+          <li className="nav-item">
+            <span className={`nav-link cursor-pointer options-toggler ${option === "wedding"? "active": " "}`} onClick={() => setOption("wedding")}>Wedding</span>
           </li>
-          <li class="nav-item">
-            <span class={`nav-link cursor-pointer text-white ${option === "custom"? "active": null}`} onClick={() => setOption("custom")}>Custom</span>
+          <li className="nav-item">
+            <span className={`nav-link cursor-pointer options-toggler ${option === "custom"? "active": " "}`} onClick={() => setOption("custom")}>Custom</span>
           </li>
         </ul>
       </div>
@@ -42,6 +49,7 @@ export default function AllCakes() {
         {cake.map((item) => {
           return (
             <div className="cakes">
+              <div className="cakes-white-line">
               <img src={item.image} alt="cake" />
               <h2>{item.cakeName}</h2>
               <p>
@@ -59,9 +67,9 @@ export default function AllCakes() {
               </p>
               <span>{item.category}</span>
             </div>
+            </div>
           );
         })}
       </div>
     </>
-  );
-}
+  )};

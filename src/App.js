@@ -4,24 +4,28 @@ import Hero from './Components/Hero';
 import Navbar from './Components/Navbar';
 import About from './Components/About';
 import Facts from './Components/Facts';
-import Products from './Components/Products';
 import Service from './Components/Service';
 import Team from './Components/Team';
 import Offer from './Components/Offer';
 import Testimonial from './Components/Testimonial';
 import Footer from './Components/Footer';
 import AddCakes from './Components/Cakes/AddCakes/AddCakes';
-import AllCakes from './Components/Cakes/AddCakes/AllCakes/AllCakes';
+import AllCakes from './Components/Cakes/AllCakes/AllCakes';
+import Header from './Components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Contact from './Components/Contact';
+
 
 function App() {
   return (
    <div>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<><Navbar/> <Hero/> <About/> <Facts/> <Products/> <Service/> <Team/> <Offer/> <Testimonial/><Footer/></>}/>
-      <Route path='/addcakes' element={<><Navbar/> <Hero/> <AddCakes/> <Footer/></>}/>
-      <Route path='/cakes' element={<><Navbar/> <Hero/> <AllCakes/> <Footer/></>}/> 
+      <Route path='/' element={<><Navbar/> <Hero/> <About/> <Facts/> <AllCakes/> <Service/> <Team/> <Offer/> <Testimonial/><Footer/></>}/>
+      <Route path='/about' element={<><Navbar/> <Header headerName="About Us"/> <About/> <Facts/>  <Footer/></>}/>
+      <Route path='/addcakes' element={<><Navbar/> <Header headerName="Add a Cake"/> <AddCakes/> <Footer/></>}/>
+      <Route path='/cakes' element={<><Navbar/> <Header headerName="Cakes"/> <AllCakes/><Footer/></>}/>
+      <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 
       
 
      

@@ -8,6 +8,7 @@
 
 .font-secondary {
   font-family: 'Pacifico', cursive;
+  font-family: sans-serif;
 }
 
 h1,
@@ -32,6 +33,7 @@ h6,
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
   transition: .5s;
+  color: white !important;
 }
 
 .btn-primary {
@@ -92,15 +94,18 @@ h6,
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  font-family: 'Oswald', sans-serif;
+  font-family: sans-serif;
   padding: 30px 15px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--light);
+  color: #FFF !important;
   outline: none;
   transition: .5s;
+
 }
+
+
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
   padding: 20px 15px;
@@ -108,7 +113,7 @@ h6,
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: var(--primary);
+  color:#E88F29 !important;
 }
 
 @media (max-width: 991.98px) {
@@ -120,7 +125,10 @@ h6,
 .hero-header {
   background: url(./img/hero.jpg) top right no-repeat;
   background-size: cover;
+  font-family:  sans-serif;
 }
+
+
 
 .btn-play {
   position: relative;
@@ -381,13 +389,21 @@ h6,
 
 width: 280px;
 padding: 20px;
-border: 3px solid #E88F29;
-background-image: url('../src/img/bg.jpg');
+background-color: #E6DFD6;
 background-size: cover;
-color: white;
-border-radius: 10px;
+color: #352d27;
 text-align: center;
 transition: transform 0.3s ease;
+border-radius: 8px;
+}
+
+.cakes-white-line {
+
+  height: 44vh;
+  padding: 25px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  
 }
 
 .cakes:hover {
@@ -395,7 +411,7 @@ transition: transform 0.3s ease;
 }
 .cakes h2{
 
-  color:#F6AA5B;
+  color:#E88F2A;
   font-size: 22px;
   margin-bottom:10px;
 }
@@ -404,7 +420,7 @@ transition: transform 0.3s ease;
 
   width: 100%;
   height: 200px;
-  border: 2px solid #E88F29;
+  border: 2px solid #fff;
   border-radius: 8px;
   margin-bottom: 20px;
 }
@@ -412,15 +428,18 @@ transition: transform 0.3s ease;
 .cakes p {
 
   margin: 5px 0;
-  color: #F0F0F0;
+  color: #352d27;
+  font-size: 18px;
+  
 }
 
 .cakes span {
 
   padding: 4px 8px;
-  background-color:#E88F29  ;
+  background-color:#E88F2A ;
   border-radius: 4px;
   font-size:12px;
+  color: white;
 }
 
 .cakes-container {
@@ -429,7 +448,6 @@ transition: transform 0.3s ease;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 25px;
-
   padding: 40px;
 }
 
@@ -449,8 +467,60 @@ transition: transform 0.3s ease;
 
 .tab-container{
   text-align: center;
+  
 }
+
 
 .cursor-pointer{
   cursor: pointer;
 }
+
+.contact-container {
+  margin-bottom: 25vh;
+}
+
+.navbar-brand h1{
+
+  padding-top: 8px;
+  
+}
+
+.text-start h6 {
+
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: black;
+  padding-top: 20px;
+}
+
+.text-start2 h6{
+
+  padding-top: 10px;
+}
+
+.phone-icon {
+
+  font-size: 30px;
+
+  
+}
+
+.options-toggler {
+  background-color: #E6DFD6;
+  font-weight: 600;
+}
+
+.social-media-icons {
+  padding-top: 5px;
+}
+
+.social-media-icons:hover{
+
+  color:#000000;
+}
+
+
+
+
+

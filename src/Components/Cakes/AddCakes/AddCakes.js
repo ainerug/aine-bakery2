@@ -8,8 +8,8 @@ import {
   NotificationManager,
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
-import { cakeSchema } from "../../../Validation/AddCakeValidation";
-export default function AddCakes() {
+import { cakeSchema } from "../../../../src/Validation/AddCakeValidation";
+export default function AddCakes(props) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [image, setImage] = useState("");
   const [error, setError] = useState("");
@@ -104,6 +104,14 @@ export default function AddCakes() {
   });
 
   return (
+    <div>
+    <div
+    className="section-title position-relative text-center mx-auto mb-5 pb-3"
+    style={{ maxWidth: "600px" }}
+  >
+    <h2 className="text-primary font-secondary">Cakes</h2>
+    <h1 className="display-4 text-uppercase">Add a Cake</h1>
+  </div>
     <div className="addCake-form">
       <NotificationContainer />
       <h2>Add a Cake: </h2>
@@ -184,10 +192,11 @@ export default function AddCakes() {
         {image !== "" && <img src={image} alt="cake" width={300} />}
         <br />
         <br />
-        <button className="btn btn-primary" type="submit">
+        <button className="btn-primary btn" type="submit">
           Add a Cake
         </button>
       </form>
+    </div>
     </div>
   );
 }
