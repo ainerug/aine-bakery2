@@ -34,10 +34,41 @@ app.get("/cakes", async (req, res)=> {
     }
 })
 
-app.get("/cakes/:category", async (req, res)=> {
+app.get("/cakes/category/:category", async (req, res)=> {
     try {
         const allCakes = await Cakes.find({category: req.params.category});
         res.status(200).send(allCakes);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+
+app.patch("/cakes/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const editCakes = await Cakes.findByIdAndUpdate(id, req.body, {new: true});
+        res.status(200).send(editCakes);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+app.get("/cakes/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const editCakes = await Cakes.findById(id);
+        res.status(200).send(editCakes);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+app.delete("/cakes/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const editCakes = await Cakes.findByIdAndDelete(id);
+        res.status(200).send(editCakes);
     } catch (error) {
         res.status(404).send(error);
     }

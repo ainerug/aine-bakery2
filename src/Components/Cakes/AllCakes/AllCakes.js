@@ -9,7 +9,7 @@ export default function AllCakes() {
 
   const getAllCakes = () => {
     axios
-      .get("http://localhost:8080/cakes/" + option)
+      .get("http://localhost:8080/cakes/category/" + option)
       .then((res) => {
         console.log(res.data);
         setCake(res.data);
