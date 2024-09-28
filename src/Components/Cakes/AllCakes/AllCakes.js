@@ -41,6 +41,10 @@ export default function AllCakes() {
     })
   }
   
+  const addCake=()=>{
+
+    navigate("/addcakes")
+  }
 
 
 
@@ -94,9 +98,14 @@ export default function AllCakes() {
                 <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/>
               </div>
             </div>
+            
             </div>
+            
           );
+
         })}
+        
       </div>
+      <div className="add-cake"><button  onClick={addCake}className="btn-primary btn border-inner form-button addCake-button">Add a Cake</button></div>
     </>
   )};

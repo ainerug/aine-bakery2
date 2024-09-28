@@ -535,8 +535,14 @@ border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
   color: #2b282677;
+  transition: transform 0.3s ease;
   
   
+}
+
+.icon-cakes:hover {
+  transform: scale(1.20);
+
 }
 
 .buttons-div{ 
@@ -544,4 +550,33 @@ border-radius: 8px;
  display: flex;
  justify-content: center;
  gap: 20px;
+
+ 
+
 }
+
+
+.buttons-div button {
+  padding: 15px 25px;
+  width: 140px;
+}
+
+.add-cake {
+
+  text-align: center;
+  margin-top: 50px;
+ 
+  
+}
+
+.addCake-button {
+
+  
+  width: 140px;
+  height: 60px;
+  
+}
+
+
+  
+
