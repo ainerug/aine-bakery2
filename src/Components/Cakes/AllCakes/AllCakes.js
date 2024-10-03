@@ -5,6 +5,18 @@ import { faBirthdayCake, faEuroSign, faTrash } from "@fortawesome/free-solid-svg
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { NotificationContainer,NotificationManager } from "react-notifications";
+import Modal from 'react-modal';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 export default function AllCakes() {
   const [cake, setCake] = useState([]);
@@ -44,6 +56,17 @@ export default function AllCakes() {
   const addCake=()=>{
 
     navigate("/addcakes")
+  }
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+
+  function closeModal() {
+    setIsOpen(false);
   }
 
 
@@ -95,7 +118,8 @@ export default function AllCakes() {
               <span>{item.category}</span>
               <div className="icon-container">
                 <FontAwesomeIcon icon={faEdit} className="icon-cakes" onClick={()=>{goToEdit(item._id)}}/>
-                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/>
+                {/* <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/> */}
+                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={openModal}/>
               </div>
             </div>
             
@@ -107,5 +131,19 @@ export default function AllCakes() {
         
       </div>
       <div className="add-cake"><button  onClick={addCake}className="btn-primary btn border-inner form-button addCake-button">Add a Cake</button></div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+      <div className="modal-container">
+        <h2>Are you sure you want to delete this cake?</h2>
+        <div className="modal-buttons-div">
+        <button className="modal-button">Yes</button>
+        <button  className="modal-button" onClick={closeModal}>No</button>
+        </div>
+      </div>
+      </Modal>
     </>
   )};

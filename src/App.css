@@ -586,5 +586,38 @@ border-radius: 8px;
 }
 
 
-  
+.modal-buttons-div {
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-container {
+  background-color: #E6DFD6;
+  padding: 30px;
+  border: none;
+  border-radius: 8px;
+}
+
+.modal-container h2 {
+
+  font-size: 22px;
+}
+.modal-button {
+
+  background-color:#E88F29;
+  border: none;
+  color: white;
+  width: 60px;
+  border-radius: 8px;
+}
+
+.modal-button:hover {
+
+  background-color: #eba04a;
+  border: none;
+  color: white;
+  width: 60px;
+}
 

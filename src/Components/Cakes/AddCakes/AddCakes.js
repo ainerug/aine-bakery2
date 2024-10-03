@@ -74,6 +74,7 @@ export default function AddCakes() {
         .then((res) => {
           console.log(res);
           NotificationManager.success("Cake has been uploaded successfully!");
+          navigate('/cakes')
         })
         .catch((e) => {
           console.log(e);

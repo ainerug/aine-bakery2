@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Select from "react-select";
 import { useState, useRef } from "react";
-import { useFormik } from "formik";
-import { cakeSchema } from "../../../Validation/AddCakeValidation";
 import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
+
 
 export default function EditCakes() {
   const location = useLocation();
@@ -26,6 +25,11 @@ export default function EditCakes() {
         flavorRef.current.value = res.data.flavor;
         descriptionRef.current.value = res.data.description;
         setImage(res.data.image);
+        setSelectedOption({
+
+          value: res.data.category,
+          label: res.data.category
+        })
       })
       .catch((e) => {
         console.log(e);
@@ -36,38 +40,46 @@ export default function EditCakes() {
     getData();
   }, []);
 
-  const editCakes = ()=>{
-
+  const editCakes = (e) => {
+    e.preventDefault();
     const payload = {
-
-        cakeName: cakeNameRef.current.value,
-        price: priceRef.current.value,
-        flavor: flavorRef.current.value,
-        description: descriptionRef.current.value,
-        image:image
-    }; axios.patch("http://localhost:8080/cakes/" + id, payload).then((res)=>{
+      cakeName: cakeNameRef.current.value,
+      price: priceRef.current.value,
+      flavor: flavorRef.current.value,
+      description: descriptionRef.current.value,
+      image: image,
+      category: selectedOption.value,
+    };
+    axios
+      .patch("http://localhost:8080/cakes/" + id, payload)
+      .then((res) => {
         console.log(res);
         NotificationManager.success("Cake has been edited!");
-    }).catch((e)=>{
+        navigate('/cakes')
+      })
+      .catch((e) => {
         console.log(e);
         NotificationManager.error("Something went wrong!");
-    })
-  }
+      });
+  };
 
-  const goBack = () =>{
+  const goBack = () => {
     navigate("/cakes");
-  }
+  };
 
-  const deleteCake = () =>{
-    axios.delete("http://localhost:8080/cakes/" + id).then((res)=>{
-        console.log(res)
+  const deleteCake = () => {
+    axios
+      .delete("http://localhost:8080/cakes/" + id)
+      .then((res) => {
+        console.log(res);
         NotificationManager.success("Cake has been deleted!");
-    }).catch((e)=>{
+        navigate('/cakes')
+      })
+      .catch((e) => {
         console.log(e);
         NotificationManager.error("Something went wrong!");
-    })
-  }
-
+      });
+  };
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [image, setImage] = useState("");
@@ -115,21 +127,6 @@ export default function EditCakes() {
       })(files[i]);
     }
   }
-  const initialValues = {
-    cakeName: "",
-    price: null,
-    flavor: "",
-    description: "",
-    file: "",
-  };
-
-  const { values, errors, handleSubmit, handleChange, handleBlur } = useFormik({
-    initialValues: initialValues,
-    validationSchema: cakeSchema,
-    onSubmit: () => {},
-  });
-
-
 
   return (
     <div>
@@ -144,58 +141,45 @@ export default function EditCakes() {
         <div className="addCake-form">
           <NotificationContainer />
           <h2>Edit Cake: </h2>
-          <form onSubmit={handleSubmit}>
-            <p className="errors">{errors.cakeName}</p>
+          <form onSubmit={editCakes}>
             <input
               type="text"
               name="cakeName"
               placeholder="Cake Name..."
-              value={values.cakeName}
-              onChange={handleChange}
-              onBlur={handleBlur}
               ref={cakeNameRef}
             />
             <br />
             <br />
-            <p className="errors">{errors.price}</p>
+
             <input
               type="number"
               name="price"
               placeholder="Price..."
               ref={priceRef}
-              value={values.price}
-              onChange={handleChange}
-              onBlur={handleBlur}
             />
             <br />
             <br />
-            <p className="errors">{errors.flavor}</p>
+
             <input
               type="text"
               name="flavor"
               placeholder="Flavor..."
               ref={flavorRef}
-              value={values.flavor}
-              onChange={handleChange}
-              onBlur={handleBlur}
             />
             <br />
             <br />
-            <p className="errors">{errors.description}</p>
+
             <textarea
               name="description"
               placeholder="Description..."
               ref={descriptionRef}
-              value={values.description}
-              onChange={handleChange}
-              onBlur={handleBlur}
             />
             <br />
             <br />
             <h3>Choose a Category: </h3>
-            <p className="errors">{error}</p>
+
             <Select
-              defaultValue={selectedOption}
+              value={selectedOption}
               onChange={setSelectedOption}
               options={options}
               className="select-menu"
@@ -203,17 +187,14 @@ export default function EditCakes() {
             />
             <br />
             <br />
-            <p className="errors">{errors.file}</p>
+
             <input
               className="file"
               type="file"
               name="file"
               onChange={(e) => {
                 readFile(e);
-                handleChange(e);
               }}
-              value={values.file}
-              onBlur={handleBlur}
             />
 
             <br />
@@ -222,18 +203,27 @@ export default function EditCakes() {
             <br />
             <br />
             <div className="buttons-div">
-            
-            <button className="btn-primary btn border-inner form-button" type="submit" onClick={editCakes}>
-              Edit Cake
-            </button>
-           
+              <button
+                className="btn-primary btn border-inner form-button"
+                type="submit"
+              >
+                Edit Cake
+              </button>
 
-            <button className="btn-primary btn border-inner form-button" type="submit" onClick={deleteCake}>
-              Delete
-            </button>
-            <button className="btn-primary btn border-inner form-button" type="submit" onClick={goBack}>
-              Back
-            </button>
+              <button
+                className="btn-primary btn border-inner form-button"
+                type="button"
+                onClick={deleteCake}
+              >
+                Delete
+              </button>
+              <button
+                className="btn-primary btn border-inner form-button"
+                type="button"
+                onClick={goBack}
+              >
+                Back
+              </button>
             </div>
           </form>
         </div>
