@@ -42,11 +42,14 @@ h6,
 
 .border-inner {
   position: relative;
+  border-radius: 8px;
+ 
 }
 
 .border-inner * {
   position: relative;
   z-index: 1;
+  border-radius: 8px;
 }
 
 .border-inner::before {
@@ -59,6 +62,7 @@ h6,
   background: none;
   border: 1px solid var(--light);
   z-index: 0;
+  border-radius: 8px;
 }
 
 .btn-square {
@@ -513,7 +517,9 @@ border-radius: 8px;
 }
 
 .social-media-icons {
-  padding-top: 5px;
+ text-align: center;
+ padding-top:6px;
+ font-size:20px;
 }
 
 .social-media-icons:hover{
@@ -551,6 +557,7 @@ border-radius: 8px;
  justify-content: center;
  gap: 20px;
 
+
  
 
 }
@@ -559,6 +566,7 @@ border-radius: 8px;
 .buttons-div button {
   padding: 15px 25px;
   width: 140px;
+  border-radius: 8px;
 }
 
 .add-cake {

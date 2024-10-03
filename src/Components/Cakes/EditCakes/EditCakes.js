@@ -223,15 +223,15 @@ export default function EditCakes() {
             <br />
             <div className="buttons-div">
             
-            <button className="btn-primary btn border-inner" type="submit" onClick={editCakes}>
+            <button className="btn-primary btn border-inner form-button" type="submit" onClick={editCakes}>
               Edit Cake
             </button>
            
 
-            <button className="btn-primary btn border-inner" type="submit" onClick={deleteCake}>
+            <button className="btn-primary btn border-inner form-button" type="submit" onClick={deleteCake}>
               Delete
             </button>
-            <button className="btn-primary btn border-inner" type="submit" onClick={goBack}>
+            <button className="btn-primary btn border-inner form-button" type="submit" onClick={goBack}>
               Back
             </button>
             </div>
