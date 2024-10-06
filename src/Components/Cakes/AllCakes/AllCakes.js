@@ -1,29 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBirthdayCake, faEuroSign, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { NotificationContainer,NotificationManager } from "react-notifications";
-import Modal from 'react-modal';
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: 'transparent',
-    border: 'none'
-  },
-};
+import DeleteModal from "../../Modal/Modal";
 
 export default function AllCakes() {
   const [cake, setCake] = useState([]);
   const [option, setOption] = useState("birthday");
   const navigate = useNavigate();
+
+  const [update, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  const [id, setId] = useState("");
 
   const getAllCakes = () => {
     axios
@@ -39,16 +30,18 @@ export default function AllCakes() {
 
   useEffect(() => {
     getAllCakes();
-  }, [option]);
+  }, [option, update]);
 
   const goToEdit = (id)=>{
 
     navigate("/editcakes", {state: {id:id}});
   }
-  const deleteCake = (id) =>{
+  const deleteCake = () =>{
     axios.delete("http://localhost:8080/cakes/" + id).then((res)=>{
         console.log(res)
         NotificationManager.success("Cake has been deleted!");
+        closeModal();
+        forceUpdate();
     }).catch((e)=>{
         console.log(e);
         NotificationManager.error("Something went wrong!");
@@ -62,7 +55,8 @@ export default function AllCakes() {
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  function openModal() {
+  function openModal(id) {
+    setId(id);
     setIsOpen(true);
   }
 
@@ -121,7 +115,7 @@ export default function AllCakes() {
               <div className="icon-container">
                 <FontAwesomeIcon icon={faEdit} className="icon-cakes" onClick={()=>{goToEdit(item._id)}}/>
                 {/* <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/> */}
-                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={openModal}/>
+                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={() => openModal(item._id)}/>
               </div>
             </div>
             
@@ -133,21 +127,8 @@ export default function AllCakes() {
         
       </div>
       <div className="add-cake"><button  onClick={addCake}className="btn-primary btn border-inner form-button addCake-button">Add a Cake</button></div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-      <div className="modal-container">
-        <div className="white-line-border">
-        <h2>Are you sure you want to delete this cake?</h2>
-        <div className="modal-buttons-div">
-        <button className="modal-button">Yes</button>
-        <button  className="modal-button" onClick={closeModal}>No</button>
-        </div>
-        </div>
-      </div>
-      </Modal>
+      
+
+      <DeleteModal modalIsOpen={modalIsOpen} deleteCake={deleteCake} closeModal={closeModal}/>
     </>
   )};

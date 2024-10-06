@@ -2,6 +2,7 @@ const express = require("express");
 require("./DB/conn");
 const cors = require("cors");
 const Cakes = require("./Model/Cakes");
+const Orders = require("./Model/Order");
 const PORT = 8080;
 const app = express();
 app.use(cors());
@@ -69,6 +70,28 @@ app.delete("/cakes/:id", async (req, res) => {
         const id = req.params.id;
         const editCakes = await Cakes.findByIdAndDelete(id);
         res.status(200).send(editCakes);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+app.post("/orders", async (req, res) => {
+    try {
+        const addCake = new Orders(req.body);
+        addCake.save().then(()=>{
+            res.status(200).send(addCake);
+        }).catch((e)=>{
+            res.status(404).send(e);
+        })
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+app.get("/orders", async (req, res)=> {
+    try {
+        const allCakes = await Orders.find();
+        res.status(200).send(allCakes);
     } catch (error) {
         res.status(404).send(error);
     }
