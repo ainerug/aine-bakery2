@@ -15,6 +15,7 @@ import EditCakes from './Components/Cakes/EditCakes/EditCakes';
 import Header from './Components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contact from './Components/Contact';
+import OrderCakes from './Components/Cakes/OrderCakes/OrderCakes';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path='/addcakes' element={<><Navbar/> <Header headerName="Add a Cake"/> <AddCakes/> <Footer/></>}/>
       <Route path='/cakes' element={<><Navbar/> <Header headerName="Cakes"/> <AllCakes/><Footer/></>}/>
       <Route path='/editcakes' element={<><Navbar/> <Header headerName="Edit Cake"/> <EditCakes/> <Footer/></>}/>
+      <Route path='/ordercakes' element={<><Navbar/> <Header headerName="Order Cake"/> <OrderCakes/> <Footer/></>}/>
       <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 
       
 

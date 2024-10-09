@@ -109,6 +109,7 @@ export default function Navbar() {
             >
               Add a Cake
             </Link>
+           
             <Link
               to="/contact"
               className={`nav-item nav-link ${

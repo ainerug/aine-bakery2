@@ -53,6 +53,11 @@ export default function AllCakes() {
     navigate("/addcakes")
   }
 
+
+  const orderCake=(id)=>{
+
+    navigate("/ordercakes" ,{state: { id: id } });
+  }
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal(id) {
@@ -115,8 +120,13 @@ export default function AllCakes() {
               <div className="icon-container">
                 <FontAwesomeIcon icon={faEdit} className="icon-cakes" onClick={()=>{goToEdit(item._id)}}/>
                 {/* <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/> */}
-                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={() => openModal(item._id)}/>
+                <button className="order-button" onClick={()=> {orderCake(item._id)}}>Order</button>
+                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={() => {openModal(item._id)}}/>
               </div>
+
+             
+              
+            
             </div>
             
             </div>

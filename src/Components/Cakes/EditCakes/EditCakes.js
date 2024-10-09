@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Select from "react-select";
 import { useState, useRef } from "react";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+
 
 
 export default function EditCakes() {
@@ -67,19 +66,7 @@ export default function EditCakes() {
     navigate("/cakes");
   };
 
-  const deleteCake = () => {
-    axios
-      .delete("http://localhost:8080/cakes/" + id)
-      .then((res) => {
-        console.log(res);
-        NotificationManager.success("Cake has been deleted!");
-        navigate('/cakes')
-      })
-      .catch((e) => {
-        console.log(e);
-        NotificationManager.error("Something went wrong!");
-      });
-  };
+
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [image, setImage] = useState("");
@@ -139,6 +126,7 @@ export default function EditCakes() {
           <h1 className="display-4 text-uppercase">Edit Cake</h1>
         </div>
         <div className="addCake-form">
+          <div className="white-line-form">
           <NotificationContainer />
           <h2>Edit Cake: </h2>
           <form onSubmit={editCakes}>
@@ -209,14 +197,6 @@ export default function EditCakes() {
               >
                 Edit Cake
               </button>
-
-              <button
-                className="btn-primary btn border-inner form-button"
-                type="button"
-                onClick={deleteCake}
-              >
-                Delete
-              </button>
               <button
                 className="btn-primary btn border-inner form-button"
                 type="button"
@@ -226,6 +206,7 @@ export default function EditCakes() {
               </button>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </div>

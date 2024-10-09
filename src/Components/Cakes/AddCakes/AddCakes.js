@@ -115,6 +115,7 @@ export default function AddCakes() {
         <h1 className="display-4 text-uppercase">Add a Cake</h1>
       </div>
       <div className="addCake-form">
+        <div className="white-line-form">
         <NotificationContainer />
         <h2>Add a Cake: </h2>
         <form onSubmit={handleSubmit}>
@@ -207,6 +208,7 @@ export default function AddCakes() {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );
