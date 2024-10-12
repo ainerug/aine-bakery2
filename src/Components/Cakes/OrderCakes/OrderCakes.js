@@ -19,7 +19,6 @@ export default function OrderCakes() {
       phoneNumber: null,
       email: "",
       address: "",
-      cakeId: "",
 
   }
 
@@ -34,7 +33,7 @@ export default function OrderCakes() {
   const location = useLocation();
   const id = location.state.id;
   const navigate = useNavigate();
-  const [cake, setCake] = useState([]);
+  const [cake, setCake] = useState({});
 
   const userNameRef = useRef();
   const phoneNumberRef = useRef();
@@ -47,8 +46,7 @@ export default function OrderCakes() {
       .get("http://localhost:8080/cakes/" + id)
       .then((res) => {
         console.log(res.data);
-        const cakeData = Array.isArray(res.data) ? res.data : [res.data];
-        setCake(cakeData);
+        setCake(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -66,7 +64,7 @@ export default function OrderCakes() {
       phoneNumber: phoneNumberRef.current.value,
       email: emailRef.current.value,
       address: addressRef.current.value,
-      cakeId: cakeIdRef.current.value,
+      cakeId: cake._id
     };
     console.log(payload);
     axios
@@ -101,24 +99,21 @@ export default function OrderCakes() {
             </div>
             <div >
               <div className="orders-div">
-                {cake.map((item) => {
-                  return (
-                    <div key={item._id} className="returned-cake-div">
+                
+                    <div className="returned-cake-div">
                       <NotificationContainer/>
                      
                       <div className="cake-white-line">
-                      <h2>{item.cakeName}</h2>
-                      <img src={item.image} alt="cake pic" />
-                      <p>  € {item.price}</p>
-                      <p> Flavor: {item.flavor}</p>
-                      <p> Category: {item.category}</p>
-                      <p> {item.description}</p>
-                       <span>ID: {item._id}</span>
+                      <h2>{cake.cakeName}</h2>
+                      <img src={cake.image} alt="cake pic" />
+                      <p>  € {cake.price}</p>
+                      <p> Flavor: {cake.flavor}</p>
+                      <p> Category: {cake.category}</p>
+                      <p> {cake.description}</p>
                        
                     </div>
                     </div>
-                  );
-                })}
+              
 
                 <div className="order-cake-form">
                   
@@ -144,7 +139,7 @@ export default function OrderCakes() {
                     <input
                       type="tel"
                       name="phoneNumber"
-                      placeholder="Phone Number: "
+                      placeholder="Phone number: "
                       ref={phoneNumberRef}
                       value = {values.phoneNumber}
                       onChange={handleChange}
@@ -174,18 +169,8 @@ export default function OrderCakes() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
-                    <br />
-                    <br />
-                    <p className="form-errors-p">{errors.cakeId}</p>
-                    <input
-                      type="text"
-                      name="cakeId"
-                      placeholder="Cake ID:"
-                      ref={cakeIdRef}
-                      value = {values.cakeId}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
+                   
+                    
                     <br />
                     <br />
                 <div className="buttons-div">

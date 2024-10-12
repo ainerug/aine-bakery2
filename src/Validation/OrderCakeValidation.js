@@ -9,6 +9,5 @@ export const orderCakeSchema = Yup.object().shape({
     phoneNumber:Yup.number().required("Phone number is required!"),
     email: Yup.string().required("E-mail is required!"),
     address: Yup.string().required("Address is required!"),
-    cakeId: Yup.string().required("Cake ID is required!"),
 }
 )

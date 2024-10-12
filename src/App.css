@@ -627,6 +627,7 @@ border-radius: 8px;
   border: 1px solid white;
   padding: 30px;
   border-radius: 7px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-button {
@@ -663,6 +664,7 @@ border-radius: 8px;
   text-align:center;
   padding-bottom:22px;
   padding-top:22px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
 
 }
@@ -678,7 +680,7 @@ border-radius: 8px;
 }
 .returned-cake-div p {
   font-size: 15px;
-  color: #96908A;
+  color: #4D4D4D;
   padding-left:9px;
   padding-right:20px;
 
@@ -702,6 +704,7 @@ border-radius: 8px;
   border: 1px solid white;
   border-radius:10px;
   margin-bottom:10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-cake-form{
@@ -758,6 +761,7 @@ border-radius: 8px;
   margin-top:20px;
   margin-left: 15px;
   margin-right:15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cake-white-line {
@@ -768,6 +772,7 @@ border-radius: 8px;
   padding-top:15px;
   padding-bottom:20px;
   border-radius: 7px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-errors-p {
@@ -781,4 +786,152 @@ border-radius: 8px;
   border: 1px solid white;
   padding:25px;
   border-radius: 7px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-orders-div{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  margin-bottom: 10px;
+  width: 30%;
+  
+  
+}
+
+.my-orders-div h2{
+  color:#e88f29;
+  font-size:18px;
+  margin-top:15px;
+  font-weight: 700;
+}
+
+
+
+.my-orders-div span{
+
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: #E88F28;
+}
+.my-order-box{
+
+  display: flex;
+  padding-top:20px;
+  text-align: center;
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom: 20px;
+  gap: 15px;
+  
+  
+}
+.my-order{
+  background-color:#E6DFD6;
+  text-align: center;
+  border-radius: 10px;
+  margin: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+ 
+}
+
+.general-orders-div {
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px; 
+  margin: 0 auto;  
+  justify-content: center;
+}
+
+.my-order-white-line{
+
+  border: 1px solid white;
+  margin-top:10px;
+  border-radius: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom:10px;
+  
+}
+
+.cakeInformation-div img{
+
+  max-width:200px;
+  max-height:200px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.cakeInformation-white-line{
+
+  border: 1px solid white;
+  margin-top:10px;
+  border-radius: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom:10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.cakeInformation-div p {
+  color: #2B2825;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 15px;
+  font-weight: 500;
+}
+
+.cakeInformation-div h3 {
+
+  color: #e88f29; 
+  font-size: 22px;
+  font-weight: 700; 
+  margin-top: 15px;
+
+}
+
+
+.userInformation-white-line{
+
+  border: 1px solid white;
+  margin-top:12px;
+  border-radius: 7px;
+  margin-right: 10px;
+  margin-bottom:12px;
+  width:100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.userInformation-div {
+  background-color: #F7F5F0; 
+  border: 1px solid #E0E0E0; 
+  width:70%;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.userInformation-div h3 {
+  color: #e88f29; 
+  font-size: 22px;
+  font-weight: 700; 
+  margin-top: 5px;
+}
+
+.userInformation-div p {
+  color: #4B4B4B; 
+  font-size: 14px;
+  margin: 10px 0; 
+  padding-left: 10px;
+  padding-right:10px;
+}
+
+.userInformation-div p span {
+  font-weight: 600; 
+  color: #E88F28; 
 }

@@ -109,6 +109,15 @@ export default function Navbar() {
             >
               Add a Cake
             </Link>
+            <Link
+              to="/myorders"
+              className={`nav-item nav-link ${
+                option === "my orders" ? "active" : null
+              }`}
+              onClick={() => setOption("my orders")}
+            >
+              My Orders
+            </Link>
            
             <Link
               to="/contact"
