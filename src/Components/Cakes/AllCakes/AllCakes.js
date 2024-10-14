@@ -76,7 +76,7 @@ export default function AllCakes() {
   return (
     <>
       <div className="tab-container">
-        <NotificationContainer/>
+        <NotificationContainer />
       <div
             className="section-title position-relative text-center mx-auto mb-5 pb-3"
             style={{ maxWidth: "600px" }}
