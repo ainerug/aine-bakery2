@@ -3,6 +3,7 @@ require("./DB/conn");
 const cors = require("cors");
 const Cakes = require("./Model/Cakes");
 const Orders = require("./Model/Order");
+const Auth = require("./Model/Auth");
 const PORT = 8080;
 const app = express();
 app.use(cors());
@@ -96,6 +97,36 @@ app.get("/orders", async (req, res)=> {
         res.status(404).send(error);
     }
 })
+
+
+app.delete("/orders/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const order = await Orders.findByIdAndDelete(id);
+        res.status(200).send(order);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+app.post("/signup", async (req, res) => {
+    try {
+        const user = await Auth.find({email: req.body.email});
+
+        if(user.length > 0){
+            res.status(404).send("Email already exists");
+        }
+        else{
+            const newUser = new Auth(req.body);
+            newUser.save();
+            res.status(200).send(newUser);
+        }
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
 
 app.listen(PORT, () => {
     console.log("Api is running on PORT: "+ PORT);
