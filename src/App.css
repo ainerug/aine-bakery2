@@ -789,141 +789,37 @@ border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.my-orders-div{
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:center;
-  margin-bottom: 10px;
-  width: 40%;
-  
-  
-}
-
-.my-orders-div h2{
-  color:#e88f29;
-  font-size:18px;
-  margin-top:20px;
-  font-weight: 700;
-}
-
-
-
-.my-orders-div span{
-
-  font-size: 13px;
-  padding-right: 10px;
-  color: #E88F28;
-}
-.my-order-box{
-
-  display: flex;
-  padding-top:15px;
-  text-align: center;
-  padding-left:15px;
-  padding-right:15px;
-  padding-bottom: 20px;
-  gap: 10px;
-  
-  
-}
-.my-order{
-  background-color:#E6DFD6;
-  text-align: center;
-  border-radius: 10px;
-  margin: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
- 
-}
-
-.general-orders-div {
-
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 10px; 
-  justify-content: center;
-}
-
-.my-order-white-line{
-
-  border: 1px solid white;
-  margin-top:10px;
-  border-radius: 7px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom:10px;
-  
-}
-
-.cakeInformation-div img{
-
-  max-width:200px;
-  max-height:200px;
-  border: 1px solid white;
-  border-radius: 10px;
-}
-.cakeInformation-white-line{
-
-  border: 1px solid white;
-  margin-top:10px;
-  border-radius: 7px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom:10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-}
-.cakeInformation-div p {
-  color: #4B4B4B;
-  font-size: 14px;
-  text-align: left;
-  padding-left: 15px;
-  font-weight: 500;
-}
-
-.cakeInformation-div h3 {
-
-  color: #e88f29; 
-  font-size: 22px;
-  font-weight: 700; 
-  margin-top: 15px;
-
-}
-.cakeInformation-div{
-
-  max-width:250px;
-}
-
-
-
 .userInformation-white-line{
 
   border: 1px solid white;
   margin-top:12px;
-  border-radius: 7px;
-  margin-right: 10px;
+  border-radius: 15px;
   margin-bottom:12px;
-  width:100%;
+  padding: 10px;;
+  width:fit-content;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #F7F5EF;
 }
 
 .userInformation-div {
-  background-color: #F7F5F0; 
+  background-color: #E88F29; 
   border: 1px solid #E0E0E0; 
-  max-width: 260px;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px 0;
+  width:fit-content;
+  border-radius: 15px;
+  padding:15px;
+  margin-top:5px;
+  margin-bottom:5px;
   text-align: left;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .userInformation-div h3 {
-  color: #e88f29; 
+  color: white;; 
   font-size: 22px;
   font-weight: 700; 
-  margin-top: 5px;
+  margin-top: 10px;
+  text-align: center;
+  width:fit-content;
 }
 
 .userInformation-div p {
@@ -931,11 +827,144 @@ border-radius: 8px;
   font-size: 14px;
   margin: 10px 0; 
   padding-left: 10px;
-  padding-right:10px;
+  width: fit-content;
+
 }
 
-.userInformation-div p span {
-  font-weight: 600; 
-  color: #E88F28; 
+.order-info-div {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  
+
+}
+
+.second-orders-div {
+
+  background-color: #E6DFD6;
+  width:80%;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius:10px;
+  margin-top:20px;
  
+  
+ 
+}
+
+
+.order-number-id {
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color:#E88F29;
+  justify-content: center;
+  gap:16px;
+  font-size:16px;
+  padding-top:10px;
+  font-weight: bolder;
+  width:fit-content;
+
+
+}
+
+
+.order-number-id h2 {
+
+  font-size:16px;
+  color:#E88F29;
+  padding-top:2px;
+
+
+
+}
+
+.cake-card {
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7F5EF;
+  width: fit-content;
+  padding:7px;
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-right:30px;
+  border-radius:15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cake-card h3{
+
+  color:#E88F29;
+  font-size:20px;
+  padding-bottom:20px;
+}
+
+.cake-card img{
+  border:2px solid white;
+  border-radius:10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom:10px;
+  max-width: 100px;
+}
+
+.order-user-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:20px;
+}
+
+.description-list {
+
+  background-color:#E88F29;
+  color: white;
+  border-radius:10px;
+  width: fit-content;
+  font-size:14px;
+  padding-right:5px;
+  padding-left:5px;
+  text-align: center;
+
+}
+
+.image-description-box {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+}
+
+
+.myorders-button {
+
+  background-color:#E88F29;
+  border: none;
+  color: white;
+  width: 120px;
+  border-radius: 8px;
+  padding-top:7px;
+  padding-bottom:7px;
+  font-weight: bolder;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.myorders-button:hover {
+
+  background-color: #eba04a;
+  border: none;
+  color: white;
+  width: 120px;
 }
