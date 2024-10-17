@@ -815,10 +815,11 @@ border-radius: 8px;
 
 .userInformation-div h3 {
   color: white;; 
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700; 
   margin-top: 10px;
-  text-align: center;
+  padding-left:10px;
+  text-align:center;
   width:fit-content;
 }
 
@@ -907,6 +908,7 @@ border-radius: 8px;
   color:#E88F29;
   font-size:20px;
   padding-bottom:20px;
+  padding-top:20px;
 }
 
 .cake-card img{
@@ -915,6 +917,7 @@ border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
   margin-bottom:10px;
   max-width: 100px;
+  margin-left:15px;
 }
 
 .order-user-box {
@@ -926,14 +929,15 @@ border-radius: 8px;
 
 .description-list {
 
-  background-color:#E88F29;
-  color: white;
+  
+ 
   border-radius:10px;
   width: fit-content;
   font-size:14px;
-  padding-right:5px;
+  padding-right:10px;
   padding-left:5px;
   text-align: center;
+  color: white;
 
 }
 
@@ -944,6 +948,14 @@ border-radius: 8px;
   justify-content: center;
   align-items: center;
   gap:20px;
+  background-color: #E88F29;
+  padding-top:10px;
+  padding-bottom:5px;
+  border-radius:15px;
+  width: fit-content;
+  margin-right:5px;
+  margin-left:5px;
+  margin-bottom:15px;
 }
 
 
@@ -967,4 +979,23 @@ border-radius: 8px;
   border: none;
   color: white;
   width: 120px;
+}
+
+.user-img-container {
+
+  display:flex;
+  width:200px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  border:1px solid #2B2825;
+  margin: auto;
+  background-color: white;;
+  margin-bottom:30px;
+}
+
+.user-img-container img{
+
+  width:100px;
 }
