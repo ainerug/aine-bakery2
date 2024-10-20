@@ -82,11 +82,12 @@ export default function MyOrders() {
             
             <div className="order-info-div">
             <div className="second-orders-div">
-              
             <div className="order-number-id">
             <h2>Order nr.{index + 1}</h2>
             <span>ID:{item.cakeId}</span>
             </div>
+              
+            <div className="second-orders-div">
             <div className="order-user-box">
             <div className="cake-card">
             <h3>{item.cakeName}</h3>
@@ -96,6 +97,7 @@ export default function MyOrders() {
             <p className="description-list">Category: {item.category}</p>
             <p className="description-list">Flavor: {item.flavor}</p>
             <p className="description-list">€ {item.price}</p>
+            </div>
             </div>
             </div>
             </div>
