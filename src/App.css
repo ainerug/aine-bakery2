@@ -803,7 +803,7 @@ border-radius: 8px;
 .userInformation-div {
   background-color: #E6DFD6; 
   border: 2px solid #F7F5EF; 
-  width:45vh;
+  width:43vh;
   border-radius: 15px;
   padding-left:10px;
   padding-right:10px;
@@ -976,6 +976,7 @@ border-radius: 8px;
   font-weight: bolder;
   margin-top:20px;
   margin-bottom:20px;
+  margin-right:50px;
 }
 
 .myorders-button:hover {
@@ -1024,11 +1025,18 @@ border-radius: 8px;
 @media screen and (max-width:1120px){
 
   .cake-card{
-    width:45vh;
+    width:43vh;
   }
 
   .myorders-button {
 
+    margin-right:40px;
+  }
+}
+
+@media screen and (max-width:999px){
+
+  .myorders-button{
     margin-right:20px;
   }
 }
