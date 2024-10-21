@@ -2,11 +2,26 @@ import React, { useState } from "react";
 import Image from "../../../img/download.png";
 import { useRef } from "react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import { signUpSchema } from "../../../Validation/SignupValidation";
 import axios from "axios";
-import { NotificationContainer, NotificationManager } from "react-notifications";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import Select from "react-select";
 
 export default function Signup() {
+
+
+  const navigate = useNavigate();
+  const options = [
+    { value: "seller", label: "Seller" },
+    { value: "customer", label: "Customer" },
+  ];
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
   const userNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -37,36 +52,35 @@ export default function Signup() {
     initialValues: initialValues,
     validationSchema: signUpSchema,
     onSubmit: () => {
-     addUser();
+      addUser();
     },
   });
 
-  const addUser = ()=>{
+  const addUser = () => {
+    const payload = {
+      userName: userNameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      image: newImage,
+      accountType: selectedOption.value,
+    };
 
-    const payload={
-
-    userName: userNameRef.current.value,
-    email: emailRef.current.value,
-    password: passwordRef.current.value,
-    image: newImage
-    }
-
-    axios.post("http://localhost:8080/signup/", payload).then((res)=>{
-    console.log(res);
-    NotificationManager.success("User has been signed up successfully!")
-
-    }).catch((e)=>{
+    axios
+      .post("http://localhost:8080/signup/", payload)
+      .then((res) => {
+        console.log(res);
+        NotificationManager.success("User has been signed up successfully!");
+        navigate('/login');
+      })
+      .catch((e) => {
         console.log(e);
         NotificationManager.error("Something went wrong");
-    })
-
-    
-  }
-
+      });
+  };
 
   return (
     <div>
-      <NotificationContainer/>
+      <NotificationContainer />
       <div
         className="section-title position-relative text-center mx-auto mb-5 pb-3"
         style={{ maxWidth: "600px" }}
@@ -94,7 +108,7 @@ export default function Signup() {
             )}
             <br />
             <br />
-            <input type="file"  className="choose-file" onChange={readFile} />
+            <input type="file" className="choose-file" onChange={readFile} />
             <br />
             <br />
             <p className="errors-indicators">{errors.userName}</p>
@@ -133,7 +147,13 @@ export default function Signup() {
             />
             <br />
             <br />
-
+            <Select
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={options}
+            />
+            <br />
+            <br />
             <div className="buttons-div">
               <button className="btn-primary btn border-inner" type="submit">
                 Sign Up
