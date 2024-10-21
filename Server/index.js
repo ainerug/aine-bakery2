@@ -7,7 +7,7 @@ const Auth = require("./Model/Auth");
 const PORT = 8080;
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: "10mb"}));
 
 app.get("/",  (req, res) => {
     res.send("Welcome to Aine Bakery");
