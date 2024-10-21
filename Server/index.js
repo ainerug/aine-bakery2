@@ -127,6 +127,27 @@ app.post("/signup", async (req, res) => {
     }
 })
 
+app.post("/login", async (req, res) => {
+    try{
+        const findUser = await Auth.findOne({email: req.body.email});
+
+        if(findUser !== null){
+            if(findUser.password.toString() === req.body.password.toString()){
+                res.status(200).send(findUser);
+            }
+            else{
+                res.status(404).send("Invalid Password!");
+            }
+        }
+        else{
+            res.status(404).send("Invalid Email!");
+        }
+    }
+    catch (error) {
+        res.status(404).send(error);
+    }
+})
+
 
 app.listen(PORT, () => {
     console.log("Api is running on PORT: "+ PORT);
