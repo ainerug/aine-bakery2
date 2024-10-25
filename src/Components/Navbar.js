@@ -2,10 +2,27 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faBirthdayCake, faPhoneSquare,  } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Parallax, Pagination, Navigation } from 'swiper/modules';
 
 export default function Navbar() {
   const [option, setOption] = useState("home");
+  const id = localStorage.getItem("userId");
+  const accountType = localStorage.getItem("accountType");
+  const navigate = useNavigate();
+
+  const logout =()=>{
+
+    localStorage.removeItem("userName");
+    localStorage.removeItem("email");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("accountType");
+    navigate('/')
+  }
 
   return (
     <div>
@@ -100,7 +117,9 @@ export default function Navbar() {
             >
               Cakes
             </Link>
-            <Link
+            {id && accountType === "seller"? <>
+            
+              <Link
               to="/addcakes"
               className={`nav-item nav-link ${
                 option === "add cake" ? "active" : null
@@ -109,6 +128,10 @@ export default function Navbar() {
             >
               Add a Cake
             </Link>
+            
+            </>:null}
+           {id?<>
+
             <Link
               to="/myorders"
               className={`nav-item nav-link ${
@@ -119,6 +142,24 @@ export default function Navbar() {
               My Orders
             </Link>
            
+           </>:null}
+            
+            {!id?<>
+
+              <Link
+              to="/login"
+              className={`nav-item nav-link ${
+                option === "login" ? "active" : null
+              }`}
+              onClick={() => setOption("login")}
+            >
+              Login
+            </Link>
+            
+            
+            </>:null
+            }
+           
             <Link
               to="/contact"
               className={`nav-item nav-link ${
@@ -128,6 +169,11 @@ export default function Navbar() {
             >
               <span className="contact-link">Contact Us</span>
             </Link>
+
+            {id? <>
+            
+            <button className="btn btn-primary" onClick={logout}>Log Out</button>
+            </>: null}
           </div>
         </div>
       </nav>

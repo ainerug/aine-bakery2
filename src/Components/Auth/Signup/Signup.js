@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "../../../img/download.png";
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -160,8 +161,9 @@ export default function Signup() {
               </button>
             </div>
           </form>
+          <Link to="/login">already have an account?</Link>
         </div>
       </div>
     </div>
-  );
+  ); 
 }

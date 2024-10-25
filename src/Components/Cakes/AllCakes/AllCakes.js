@@ -11,6 +11,7 @@ export default function AllCakes() {
   const [cake, setCake] = useState([]);
   const [option, setOption] = useState("birthday");
   const navigate = useNavigate();
+  const accountType = localStorage.getItem("accountType");
 
   const [update, forceUpdate] = useReducer((x) => x + 1, 0);
 
@@ -136,7 +137,12 @@ export default function AllCakes() {
         })}
         
       </div>
-      <div className="add-cake"><button  onClick={addCake}className="btn-primary btn border-inner form-button addCake-button">Add a Cake</button></div>
+      {accountType === "seller"? <>
+      
+      <div className="add-cake"><button  onClick={addCake}className="btn-primary btn border-inner form-button addCake-button">Add a Cake</button></div></>: null
+      
+      }
+      
       
 
       <DeleteModal modalIsOpen={modalIsOpen} deleteCake={deleteCake} closeModal={closeModal}/>

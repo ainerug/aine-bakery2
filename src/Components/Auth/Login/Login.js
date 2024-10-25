@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
 import React from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginSchema } from '../../../Validation/LoginValidation';
@@ -41,6 +42,7 @@ export default function Login() {
         localStorage.setItem("userName",res.data.userName);
         localStorage.setItem("email",res.data.email);
         localStorage.setItem("userId",res.data._id);
+        localStorage.setItem("accountType", res.data.accountType);
         navigate('/');
         
       })
@@ -97,6 +99,8 @@ export default function Login() {
                 Login
               </button>
             </div>
+
+            <Link to="/signup">create a new account?</Link>
           </form>
         </div>
       </div>

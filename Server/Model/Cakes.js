@@ -29,6 +29,12 @@ const cakeSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true
+    },
+    sellerId: {
+
+        type: String,
+        required: true
+
     }
 })
 

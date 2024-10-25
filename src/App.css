@@ -127,8 +127,6 @@ h6,
 }
 
 .hero-header {
-  background: url(./img/hero.jpg) top right no-repeat;
-  background-size: cover;
   font-family:  sans-serif;
 }
 
@@ -485,6 +483,7 @@ border-radius: 8px;
 .navbar-brand h1{
 
   padding-top: 8px;
+  
   
 }
 
@@ -1102,4 +1101,51 @@ border-radius: 8px;
 .choose-file {
 
   padding-top:7px;
+}
+
+.slide1 {
+  background-image: url('../src/img/cake8.png');
+  background-size: cover;
+  background-position: top;
+  padding-bottom:80px;
+  height:68vh;
+  padding-top:10px;
+  
+}
+.slide2 {
+  background-image: url('../src/img/cakecover3.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-bottom:80px;
+  height:68vh;
+  padding-top:10px;
+  
+}
+.slide3 {
+  background-image: url('../src/img/cake9.jpg');
+  background-size: cover;
+  background-position: top;
+  padding-bottom:80px;
+  height:68vh;
+  padding-top:10px;
+  
+}
+
+.container-fluid-hero {
+
+  height:68vh;
+}
+
+.crispy {
+
+ margin-left:50px;
+ padding-top:40px;
+ padding-bottom:10px;
+}
+
+.hero-button-div{
+
+  margin-left:50px;
+  padding-bottom:10px;
+  padding-top:20px;
 }
