@@ -99,7 +99,7 @@ export default function Hero() {
                 CakeZone
               </h1>
               <h1 className="text-uppercase text-white">
-              Handcrafted Perfection
+              For your occasion
               </h1>
             </div>
             <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5 pb-5 hero-button-div">
