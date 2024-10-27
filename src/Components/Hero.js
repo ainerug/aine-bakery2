@@ -13,10 +13,7 @@ export default function Hero() {
           slidesPerView={1}
           spaceBetween={30}
           loop={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
+          navigation={false}
           autoplay={{
             delay: 2000, 
             disableOnInteraction: false, 

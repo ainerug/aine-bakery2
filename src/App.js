@@ -12,6 +12,7 @@ import Footer from './Components/Footer';
 import AddCakes from './Components/Cakes/AddCakes/AddCakes';
 import AllCakes from './Components/Cakes/AllCakes/AllCakes';
 import EditCakes from './Components/Cakes/EditCakes/EditCakes';
+import MyCakes from './Components/Cakes/MyCakes/MyCakes';
 import Header from './Components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contact from './Components/Contact';
@@ -19,7 +20,6 @@ import OrderCakes from './Components/Cakes/OrderCakes/OrderCakes';
 import MyOrders from './Components/Orders/MyOrders/MyOrders';
 import Signup from './Components/Auth/Signup/Signup';
 import Login from './Components/Auth/Login/Login';
-
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
       <Route path='/login' element={<><Navbar/> <Header headerName="Login"/> <Login/> <Footer/></>}/> 
       <Route path='/signup' element={<><Navbar/> <Header headerName="Sign Up"/> <Signup/> <Footer/></>}/> 
       <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 
+      <Route path='/mycakes' element={<><Navbar/> <Header headerName="My Cakes"/> <MyCakes/> <Footer/></>}/> 
       
 
      

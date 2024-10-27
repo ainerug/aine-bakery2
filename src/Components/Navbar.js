@@ -126,6 +126,19 @@ export default function Navbar() {
             </Link>
             
             </>:null}
+            {id && accountType === "seller"? <>
+            
+            <Link
+            to="/mycakes"
+            className={`nav-item nav-link ${
+              option === "my cakes" ? "active" : null
+            }`}
+            onClick={() => setOption("my cakes")}
+          >
+            My Cakes
+          </Link>
+          
+          </>:null}
            {id?<>
 
             <Link

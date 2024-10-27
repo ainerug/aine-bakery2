@@ -1,11 +1,9 @@
 import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBirthdayCake, faEuroSign, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faEdit } from "@fortawesome/free-regular-svg-icons";
+import { faBirthdayCake, faEuroSign} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { NotificationContainer,NotificationManager } from "react-notifications";
-import DeleteModal from "../../Modal/Modal";
+
 
 export default function AllCakes() {
   const [cake, setCake] = useState([]);
@@ -15,7 +13,6 @@ export default function AllCakes() {
 
   const [update, forceUpdate] = useReducer((x) => x + 1, 0);
 
-  const [id, setId] = useState("");
 
   const getAllCakes = () => {
     axios
@@ -33,21 +30,7 @@ export default function AllCakes() {
     getAllCakes();
   }, [option, update]);
 
-  const goToEdit = (id)=>{
-
-    navigate("/editcakes", {state: {id:id}});
-  }
-  const deleteCake = () =>{
-    axios.delete("http://localhost:8080/cakes/" + id).then((res)=>{
-        console.log(res)
-        NotificationManager.success("Cake has been deleted!");
-        closeModal();
-        forceUpdate();
-    }).catch((e)=>{
-        console.log(e);
-        NotificationManager.error("Something went wrong!");
-    })
-  }
+ 
   
   const addCake=()=>{
 
@@ -59,17 +42,7 @@ export default function AllCakes() {
 
     navigate("/ordercakes" ,{state: { id: id } });
   }
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  function openModal(id) {
-    setId(id);
-    setIsOpen(true);
-  }
-
-
-  function closeModal() {
-    setIsOpen(false);
-  }
+ 
 
 
 
@@ -77,7 +50,6 @@ export default function AllCakes() {
   return (
     <>
       <div className="tab-container">
-        <NotificationContainer />
       <div
             className="section-title position-relative text-center mx-auto mb-5 pb-3"
             style={{ maxWidth: "600px" }}
@@ -119,10 +91,9 @@ export default function AllCakes() {
               </p>
               <span>{item.category}</span>
               <div className="icon-container">
-                <FontAwesomeIcon icon={faEdit} className="icon-cakes" onClick={()=>{goToEdit(item._id)}}/>
-                {/* <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={()=>{deleteCake(item._id)}}/> */}
+               
                 <button className="order-button" onClick={()=> {orderCake(item._id)}}>Order</button>
-                <FontAwesomeIcon icon={faTrash} className="icon-cakes" onClick={() => {openModal(item._id)}}/>
+             
               </div>
 
              
@@ -145,6 +116,5 @@ export default function AllCakes() {
       
       
 
-      <DeleteModal modalIsOpen={modalIsOpen} deleteCake={deleteCake} closeModal={closeModal}/>
     </>
   )};

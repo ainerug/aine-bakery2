@@ -15,6 +15,7 @@ export default function AddCakes() {
   const [image, setImage] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const sellerId = localStorage.getItem("userId")
 
   const cakeNameRef = useRef();
   const priceRef = useRef();
@@ -68,6 +69,7 @@ export default function AddCakes() {
         description: descriptionRef.current.value,
         flavor: flavorRef.current.value,
         category: selectedOption.value,
+        sellerId
       };
       axios
         .post("http://localhost:8080/cakes", payload)

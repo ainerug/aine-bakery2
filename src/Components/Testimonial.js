@@ -10,7 +10,6 @@ import Testimonial3 from "../img/testimonial-3.jpg";
 import Testimonial4 from "../img/testimonial-4.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faQuoteLeft,
   faQuoteLeftAlt,
   faQuoteRightAlt,
 } from "@fortawesome/free-solid-svg-icons";
@@ -28,10 +27,7 @@ export default function Testimonial() {
             slidesPerView={1}
             spaceBetween={30}
             loop={true}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
+            navigation={false}
             autoplay={{
               delay: 2000,
               disableOnInteraction: false,
