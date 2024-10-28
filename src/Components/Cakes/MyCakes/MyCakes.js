@@ -70,7 +70,7 @@ export default function MyCakes() {
             style={{ maxWidth: "600px" }}
           >
             <h2 className="text-primary font-secondary">Cakes</h2>
-            <h1 className="display-4 text-uppercase">Eplore Our Cakes</h1>
+            <h1 className="display-4 text-uppercase">My Cakes</h1>
           </div>
 
       <div className="cakes-container">
