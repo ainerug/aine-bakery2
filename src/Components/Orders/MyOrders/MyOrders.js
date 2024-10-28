@@ -73,6 +73,14 @@ export default function MyOrders() {
   };
 
   return (
+    <div>
+      <div
+            className="section-title position-relative text-center mx-auto mb-5 pb-3"
+            style={{ maxWidth: "600px" }}
+          >
+            <h2 className="text-primary font-secondary">Orders</h2>
+            <h1 className="display-4 text-uppercase">My Orders</h1>
+          </div>
     <div className="orders-container">
       {orders.map((item, index) => {
         return (
@@ -125,6 +133,7 @@ export default function MyOrders() {
        
         );
       })}
+    </div>
     </div>
   );
 }
