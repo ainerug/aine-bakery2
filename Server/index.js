@@ -81,7 +81,7 @@ app.get("/myorders/:customerId", async (req, res) => {
     try {
         const customerId = req.params.customerId;
 
-        const getCakes = await Cakes.find({customerId: customerId});
+        const getCakes = await Orders.find({customerId: customerId});
         res.status(200).send(getCakes);
     } catch (error) {
         res.status(404).send(error);
