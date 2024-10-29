@@ -77,6 +77,17 @@ app.get("/mycakes/:sellerId", async (req, res) => {
     }
 })
 
+app.get("/myorders/:customerId", async (req, res) => {
+    try {
+        const customerId = req.params.customerId;
+
+        const getCakes = await Cakes.find({customerId: customerId});
+        res.status(200).send(getCakes);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
 app.delete("/cakes/:id", async (req, res) => {
     try {
         const id = req.params.id;
