@@ -27,7 +27,15 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
 
+    customerId: {
+        type: String,
+        required: true
+    },
 
+    sellerId: {
+        type: String,
+        required: true
+    }
 })
 
 const Orders = new mongoose.model("orders", orderSchema);
