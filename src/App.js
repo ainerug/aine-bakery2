@@ -17,9 +17,10 @@ import Header from './Components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contact from './Components/Contact';
 import OrderCakes from './Components/Cakes/OrderCakes/OrderCakes';
-import MyOrders from './Components/Orders/MyOrders/MyOrders';
+import CustomerOrders from './Components/Orders/MyOrders/CustomerOrders';
 import Signup from './Components/Auth/Signup/Signup';
 import Login from './Components/Auth/Login/Login';
+import SellerOrders from './Components/Orders/MyOrders/SellerOrders';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       <Route path='/cakes' element={<><Navbar/> <Header headerName="Cakes"/> <AllCakes/><Footer/></>}/>
       <Route path='/editcakes' element={<><Navbar/> <Header headerName="Edit Cake"/> <EditCakes/> <Footer/></>}/>
       <Route path='/ordercakes' element={<><Navbar/> <Header headerName="Order Cake"/> <OrderCakes/> <Footer/></>}/>
-      <Route path='/myorders' element={<><Navbar/> <Header headerName="My Orders"/> <MyOrders/> <Footer/></>}/>
+      <Route path='/customerorders' element={<><Navbar/> <Header headerName="My Orders"/> <CustomerOrders/> <Footer/></>}/>
+      <Route path='/sellerorders' element={<><Navbar/> <Header headerName="My Orders"/> <SellerOrders/> <Footer/></>}/>
       <Route path='/login' element={<><Navbar/> <Header headerName="Login"/> <Login/> <Footer/></>}/> 
       <Route path='/signup' element={<><Navbar/> <Header headerName="Sign Up"/> <Signup/> <Footer/></>}/> 
       <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 

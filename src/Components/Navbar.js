@@ -139,14 +139,27 @@ export default function Navbar() {
           </Link>
           
           </>:null}
-           {id?<>
+           {id && accountType === "customer"?<>
 
             <Link
-              to="/myorders"
+              to="/customerorders"
               className={`nav-item nav-link ${
-                option === "my orders" ? "active" : null
+                option === "customer orders" ? "active" : null
               }`}
-              onClick={() => setOption("my orders")}
+              onClick={() => setOption("customer orders")}
+            >
+              My Orders
+            </Link>
+           
+           </>:null}
+           {id && accountType === "seller"?<>
+
+            <Link
+              to="/sellerorders"
+              className={`nav-item nav-link ${
+                option === "seller orders" ? "active" : null
+              }`}
+              onClick={() => setOption("seller orders")}
             >
               My Orders
             </Link>

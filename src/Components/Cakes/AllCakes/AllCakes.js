@@ -91,8 +91,11 @@ export default function AllCakes() {
               </p>
               <span>{item.category}</span>
               <div className="icon-container">
-               
-                <button className="order-button" onClick={()=> {orderCake(item._id)}}>Order</button>
+               {accountType === "customer"? <>
+
+               <button className="order-button" onClick={()=> {orderCake(item._id)}}>Order</button>
+               </>:null}
+                
              
               </div>
 

@@ -34,6 +34,7 @@ export default function OrderCakes() {
   const id = location.state.id;
   const navigate = useNavigate();
   const [cake, setCake] = useState({});
+  const customerId = localStorage.getItem('userId');
 
   const userNameRef = useRef();
   const phoneNumberRef = useRef();
@@ -64,7 +65,10 @@ export default function OrderCakes() {
       phoneNumber: phoneNumberRef.current.value,
       email: emailRef.current.value,
       address: addressRef.current.value,
-      cakeId: cake._id
+      cakeId: cake._id,
+      sellerId: cake.sellerId,
+      customerId 
+       
     };
     console.log(payload);
     axios

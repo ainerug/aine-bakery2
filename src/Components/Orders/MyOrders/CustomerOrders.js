@@ -6,13 +6,14 @@ import {
 } from "react-notifications";
 import { useNavigate } from "react-router-dom";
 
-export default function MyOrders() {
+export default function CustomerOrders() {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
+  const customerId = localStorage.getItem("userId")
 
   const getData = () => {
     axios
-      .get("http://localhost:8080/orders")
+      .get("http://localhost:8080/myorders/" + customerId)
       .then(async (res) => {
         console.log(res.data);
 
@@ -64,7 +65,7 @@ export default function MyOrders() {
       .then((res) => {
         console.log(res);
         NotificationManager.success("Order has been deleted!");
-        navigate("/myorders");
+        navigate("/customerorders");
       })
       .catch((e) => {
         console.log(e);
