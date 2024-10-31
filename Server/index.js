@@ -168,6 +168,17 @@ app.delete("/orders/:id", async (req, res) => {
     }
 })
 
+
+app.patch("/orders/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updateOrder = await Orders.findByIdAndUpdate(id, req.body);
+        res.status(200).send(updateOrder);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
 app.post("/signup", async (req, res) => {
     try {
         const user = await Auth.find({email: req.body.email});
