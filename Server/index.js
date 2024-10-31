@@ -100,7 +100,7 @@ app.get("/sellerorders/:sellerId", async (req, res) => {
 })
 
 
-app.get("getcustomerorders/:orderstatus/:customerId", async (req, res) => {
+app.get("/getcustomerorders/:orderstatus/:customerId", async (req, res) => {
     try {
         const orderStatus = req.params.orderstatus;
         const customerId = req.params.customerId;
@@ -112,7 +112,7 @@ app.get("getcustomerorders/:orderstatus/:customerId", async (req, res) => {
     }
 })
 
-app.get("getsellerorders/:orderstatus/:sellerId", async (req, res) => {
+app.get("/getsellerorders/:orderstatus/:sellerId", async (req, res) => {
     try {
         const orderStatus = req.params.orderstatus;
         const sellerId = req.params.sellerId;
