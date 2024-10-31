@@ -99,6 +99,31 @@ app.get("/sellerorders/:sellerId", async (req, res) => {
     }
 })
 
+
+app.get("getcustomerorders/:orderstatus/:customerId", async (req, res) => {
+    try {
+        const orderStatus = req.params.orderstatus;
+        const customerId = req.params.customerId;
+
+        const orders = await Orders.find({orderStatus: orderStatus}, {customerId: customerId});
+        res.status(200).send(orders);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
+app.get("getsellerorders/:orderstatus/:sellerId", async (req, res) => {
+    try {
+        const orderStatus = req.params.orderstatus;
+        const sellerId = req.params.sellerId;
+
+        const orders = await Orders.find({orderStatus: orderStatus}, {sellerId: sellerId});
+        res.status(200).send(orders);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
+
 app.delete("/cakes/:id", async (req, res) => {
     try {
         const id = req.params.id;
