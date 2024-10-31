@@ -8,11 +8,12 @@ export default function SellerOrders() {
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
     const sellerId = localStorage.getItem("userId");
+    const [option, setOption] = useState("pending");
 
 
     const getData = () => {
         axios
-          .get("http://localhost:8080/sellerorders/" + sellerId)
+          .get("http://localhost:8080/getsellerorders/" + option + "/" + sellerId)
           .then(async (res) => {
             console.log(res.data);
     
@@ -56,21 +57,23 @@ export default function SellerOrders() {
     
       useEffect(() => {
         getData();
-      }, []);
+      }, [option]);
+
+      const updateStatus = (orderStatus, id)=>{
+
+        const payload = {
+          orderStatus
+
+        }
+
+        axios.patch("http://localhost:8080/orders/" +id, payload).then((res)=>{
+        console.log(res);
+        }).catch((e)=>{
+          console.log(e);
+        })
+      }
     
-      const deleteOrder = (id) => {
-        axios
-          .delete("http://localhost:8080/orders/" + id)
-          .then((res) => {
-            console.log(res);
-            NotificationManager.success("Order has been deleted!");
-            navigate("/sellerorders");
-          })
-          .catch((e) => {
-            console.log(e);
-            NotificationManager.error("Something went wrong!");
-          });
-      };
+     
 
   return (
     <div>
@@ -80,7 +83,54 @@ export default function SellerOrders() {
           >
             <h2 className="text-primary font-secondary">Orders</h2>
             <h1 className="display-4 text-uppercase">My Orders</h1>
-          </div> <div className="orders-container">
+
+          </div> 
+          <div className='orders-toggler'>
+          <ul className="nav nav-pills d-inline-flex justify-content-center options-toggler text-uppercase border-inner p-4 mb-5">
+          <li className="nav-item">
+            <span
+              className={`nav-link cursor-pointer options-toggler ${
+                option === "pending" ? "active" : " "
+              }`}
+              onClick={() => setOption("pending")}
+            >
+              Order Requests
+            </span>
+          </li>
+          <li className="nav-item">
+            <span
+              className={`nav-link cursor-pointer options-toggler ${
+                option === "ongoing" ? "active" : " "
+              }`}
+              onClick={() => setOption("ongoing")}
+            >
+              Ongoing
+            </span>
+          </li>
+          <li className="nav-item">
+            <span
+              className={`nav-link cursor-pointer options-toggler ${
+                option === "completed" ? "active" : " "
+              }`}
+              onClick={() => setOption("completed")}
+            >
+              Completed
+            </span>
+          </li>
+          <li className="nav-item">
+            <span
+              className={`nav-link cursor-pointer options-toggler ${
+                option === "canceled" ? "active" : " "
+              }`}
+              onClick={() => setOption("canceled")}
+            >
+              Canceled
+            </span>
+          </li>
+        </ul>
+        </div>
+        <div className="orders-container">
+
       {orders.map((item, index) => {
         return (
           <div>
@@ -120,9 +170,17 @@ export default function SellerOrders() {
               </div>
             </div>
             </div>
-            <center>
-            <button className="myorders-button" onClick={() => deleteOrder(item.id)}>Delete Order</button>
-            </center>
+            {option === "pending" && 
+            
+            ( <div>
+              <button className='myorders-button accept-button' onClick={()=>{updateStatus("ongoing", item.id)}}>Accept</button>
+              <button className='myorders-button cancel-button' onClick={()=>{updateStatus("canceled", item.id)}}>Reject</button>
+             
+            </div>)
+            
+            
+            }
+           
             </div>
             
             </div>
