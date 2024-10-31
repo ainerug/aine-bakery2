@@ -105,7 +105,7 @@ app.get("/getcustomerorders/:orderstatus/:customerId", async (req, res) => {
         const orderStatus = req.params.orderstatus;
         const customerId = req.params.customerId;
 
-        const orders = await Orders.find({orderStatus: orderStatus}, {customerId: customerId});
+        const orders = await Orders.find({orderStatus: orderStatus,customerId: customerId});
         res.status(200).send(orders);
     } catch (error) {
         res.status(404).send(error);
@@ -117,7 +117,7 @@ app.get("/getsellerorders/:orderstatus/:sellerId", async (req, res) => {
         const orderStatus = req.params.orderstatus;
         const sellerId = req.params.sellerId;
 
-        const orders = await Orders.find({orderStatus: orderStatus}, {sellerId: sellerId});
+        const orders = await Orders.find({orderStatus: orderStatus,sellerId: sellerId});
         res.status(200).send(orders);
     } catch (error) {
         res.status(404).send(error);
