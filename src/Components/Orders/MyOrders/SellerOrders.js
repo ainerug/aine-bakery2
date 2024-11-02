@@ -69,6 +69,7 @@ export default function SellerOrders() {
         axios.patch("http://localhost:8080/orders/" +id, payload).then((res)=>{
         console.log(res);
         NotificationManager.success("Order status has been updated successfully!")
+        navigate("/sellerorders")
         }).catch((e)=>{
           console.log(e);
           NotificationManager.error("Something went wrong")
