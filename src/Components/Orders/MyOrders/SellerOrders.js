@@ -1,14 +1,14 @@
 import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
+import RejectModal from "../../RejectModal/Modal/RejectModal";
 
 export default function SellerOrders() {
   const [orders, setOrders] = useState([]);
-  const navigate = useNavigate();
+  const [id, setId] = useState("");
   const sellerId = localStorage.getItem("userId");
   const [option, setOption] = useState("pending");
   const [update, forceUpdate] = useReducer((x) => x + 1, 0);
@@ -73,7 +73,7 @@ export default function SellerOrders() {
         NotificationManager.success(
           "Order status has been updated successfully!"
         );
-
+        closeModal();
         forceUpdate();
       })
       .catch((e) => {
@@ -81,6 +81,17 @@ export default function SellerOrders() {
         NotificationManager.error("Something went wrong");
       });
   };
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal(id) {
+    setId(id);
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div>
@@ -190,7 +201,7 @@ export default function SellerOrders() {
                       <button
                         className="myorders-button cancel-button"
                         onClick={() => {
-                          updateStatus("canceled", item.id);
+                          openModal(item.id)
                         }}
                       >
                         Reject
@@ -211,7 +222,9 @@ export default function SellerOrders() {
                       <button
                         className="myorders-button cancel-button"
                         onClick={() => {
-                          updateStatus("canceled", item.id);
+                          
+                            openModal(item.id)
+                       
                         }}
                       >
                         Cancel
@@ -223,7 +236,11 @@ export default function SellerOrders() {
             </div>
           );
         })}
+
+        
       </div>
+      <RejectModal modalIsOpen={modalIsOpen} updateStatus={()=> updateStatus("canceled", id)} closeModal={closeModal}/>
     </div>
+    
   );
 }

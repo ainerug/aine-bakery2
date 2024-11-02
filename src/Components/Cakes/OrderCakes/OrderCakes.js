@@ -76,7 +76,7 @@ export default function OrderCakes() {
       .then((res) => {
         console.log(res);
         NotificationManager.success("Your order has been placed successfully!");
-        navigate("/cakes");
+        navigate("/customerorders");
       })
       .catch((e) => {
         console.log(e);
