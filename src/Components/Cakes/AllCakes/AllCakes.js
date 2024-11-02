@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBirthdayCake, faEuroSign } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,6 @@ export default function AllCakes() {
   const navigate = useNavigate();
   const accountType = localStorage.getItem("accountType");
 
-  const [update, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const getAllCakes = () => {
     axios
@@ -26,7 +25,7 @@ export default function AllCakes() {
 
   useEffect(() => {
     getAllCakes();
-  }, [option, update]);
+  }, [option]);
 
   const addCake = () => {
     navigate("/addcakes");
