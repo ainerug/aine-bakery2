@@ -40,10 +40,6 @@ const orderSchema = new mongoose.Schema({
         type: String,
         default: "pending"
     },
-    paymentMethod: {
-        type: String,
-        required: true
-    },
     isPaid: {
         type: Boolean,
         default: false

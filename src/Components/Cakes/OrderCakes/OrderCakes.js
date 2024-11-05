@@ -76,7 +76,7 @@ export default function OrderCakes() {
       .then((res) => {
         console.log(res);
         NotificationManager.success("Your order has been placed successfully!");
-        navigate("/customerorders");
+        navigate("/payment", {state:{price: cake.price, orderId: res.data._id}});
       })
       .catch((e) => {
         console.log(e);
@@ -178,7 +178,7 @@ export default function OrderCakes() {
                     <br />
                     <br />
                 <div className="buttons-div">
-                    <button type="submit">Order Now</button>
+                    <button type="submit">Checkout</button>
                     <br />
                     <br />
                     <button type="button" onClick={goBack}>

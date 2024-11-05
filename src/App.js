@@ -40,7 +40,7 @@ function App() {
       <Route path='/signup' element={<><Navbar/> <Header headerName="Sign Up"/> <Signup/> <Footer/></>}/> 
       <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 
       <Route path='/mycakes' element={<><Navbar/> <Header headerName="My Cakes"/> <MyCakes/> <Footer/></>}/> 
-      <Route path='/payment' element={<><Navbar/> <Header headerName="Payment"/> <PaymentMain/> <Footer/></>}/> 
+      <Route path='/payment' element={<><Navbar/> <PaymentMain/> <Footer/></>}/> 
       
 
      
