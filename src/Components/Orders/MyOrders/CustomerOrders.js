@@ -198,7 +198,7 @@ export default function CustomerOrders() {
                           openModal(item.id)
                         }}
                       >
-                        Reject
+                        Cancel
                       </button>
                     </div>
                   )}
@@ -212,7 +212,7 @@ export default function CustomerOrders() {
                           openModal(item.id)
                         }}
                       >
-                        Reject
+                        Cancel
                       </button>
                     </div>
                   )}
