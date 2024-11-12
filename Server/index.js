@@ -4,6 +4,8 @@ const cors = require("cors");
 const Cakes = require("./Model/Cakes");
 const Orders = require("./Model/Order");
 const Auth = require("./Model/Auth");
+const Wallet = require("./Model/Wallet");
+
 const PORT = 8080;
 const app = express();
 app.use(cors());
@@ -199,6 +201,16 @@ app.get("/orders", async (req, res) => {
   }
 });
 
+
+app.get("/orders/:id", async (req, res) => {
+  try {
+    const allCakes = await Orders.findById(req.params.id);
+    res.status(200).send(allCakes);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+});
+
 app.delete("/orders/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -235,6 +247,54 @@ app.post("/signup", async (req, res) => {
     res.status(404).send(error);
   }
 });
+
+app.post("/wallet", async (req, res) => {
+  try {
+    const addInfo = new Wallet(req.body);
+    addInfo.save().then(()=>{
+      res.status(200).send(addInfo);
+    }).catch((e)=>{
+      res.status(404).send(e);
+    })
+  } catch (error) {
+    res.status(404).send(error);
+  }
+})
+
+app.get("/wallet/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    const totalEarnings = await Wallet.find({sellerId: userId, orderStatus: "completed"});
+    const expectedEarnings =await  Wallet.find({sellerId: userId, orderStatus: "ongoing"});
+
+    let sum = 0;
+    for(let i = 0; i < totalEarnings.length; i++){
+      sum += totalEarnings[i].amount;
+    }
+
+    let avgOrderPrice = sum / totalEarnings.length;
+
+    res.status(200).send({
+      totalEarnings,
+      expectedEarnings,
+      avgOrderPrice
+    })
+    
+  } catch (error) {
+    res.status(404).send(error);
+  }
+})
+
+app.patch("/wallet/:orderId", async (req, res) => {
+  try {
+    const orderId = req.params.orderId;
+    const updateWallet = await Wallet.findOneAndUpdate({orderId: orderId}, req.body, {new: true});
+    res.status(200).send(updateWallet);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+})
 
 app.post("/login", async (req, res) => {
   try {
