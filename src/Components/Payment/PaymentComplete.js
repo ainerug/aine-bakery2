@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
+import confirmation from '../../img/confirmation.png'
 
 export default function PaymentComplete() {
 
@@ -12,9 +13,13 @@ export default function PaymentComplete() {
 
             axios.patch("http://localhost:8080/orders/"+ orderId, {isPaid:true}).then((res)=>{
                 console.log(res);
-                navigate("/customerorders")
+                setTimeout(()=>{
+                  navigate('/customerorders')
+                },2000);
+              
             }).catch((e)=>{
                 console.log(e);
+
             })
         }
 
@@ -24,9 +29,12 @@ export default function PaymentComplete() {
         },[]);
 
   return (
-    <div>
+
+    <div className='confirmation-part'>
+      <img src={confirmation} alt="confirmation"/>
       <h1>Payment Successful</h1>
-      <p>{orderId}</p>
+      <p>Redirecting to your orders...</p>
     </div>
+
   )
 }

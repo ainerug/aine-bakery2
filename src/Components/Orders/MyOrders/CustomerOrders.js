@@ -46,6 +46,7 @@ export default function CustomerOrders() {
             flavor: cakeData[i].flavor,
             image: cakeData[i].image,
             price: cakeData[i].price,
+            isPaid: ordersData[i].isPaid
           });
         }
 
@@ -151,7 +152,8 @@ export default function CustomerOrders() {
     <div className="orders-container">
       {orders.map((item, index) => {
         return (
-          <div>
+          <>{item.isPaid && (
+            <div>
            
             <NotificationContainer />
             
@@ -222,6 +224,8 @@ export default function CustomerOrders() {
             </div>
             
           </div>
+          )}</>
+         
           
        
         );

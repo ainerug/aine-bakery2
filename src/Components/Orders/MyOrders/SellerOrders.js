@@ -46,6 +46,7 @@ export default function SellerOrders() {
             flavor: cakeData[i].flavor,
             image: cakeData[i].image,
             price: cakeData[i].price,
+            isPaid: ordersData[i].isPaid
           });
         }
 
@@ -94,6 +95,7 @@ export default function SellerOrders() {
   }
 
   return (
+
     <div>
       <div
         className="section-title position-relative text-center mx-auto mb-5 pb-3"
@@ -149,7 +151,9 @@ export default function SellerOrders() {
       <div className="orders-container">
         {orders.map((item, index) => {
           return (
-            <div>
+            <>
+            {item.isPaid &&
+            ( <div>
               <NotificationContainer />
 
               <div className="order-info-div">
@@ -233,7 +237,8 @@ export default function SellerOrders() {
                   )}
                 </div>
               </div>
-            </div>
+            </div>) }
+            </>
           );
         })}
 
