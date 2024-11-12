@@ -76,7 +76,7 @@ export default function OrderCakes() {
       .then((res) => {
         console.log(res);
         NotificationManager.success("Your order has been placed successfully!");
-        navigate("/payment", {state:{price: cake.price, orderId: res.data._id}});
+        navigate("/payment", {state:{price: cake.price, orderId: res.data._id, cakeId: cake._id}});
       })
       .catch((e) => {
         console.log(e);

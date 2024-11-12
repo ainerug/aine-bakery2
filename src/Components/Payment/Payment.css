@@ -10,6 +10,7 @@
     padding: 40px;
     margin-top: auto;
     margin-bottom: auto;
+    background-color: #F7F5EF;
   }
   
   
@@ -19,15 +20,17 @@
     line-height: 20px;
     padding-top: 12px;
     text-align: center;
+   
   }
   
   #payment-element {
     margin-bottom: 24px;
+    
   }
   
   /* Buttons and links */
   #submit {
-    background: #0055DE;
+    background: #E88F29;
     font-family: Arial, sans-serif;
     color: #ffffff;
     border-radius: 4px;
@@ -170,9 +173,86 @@
   .payment-container{
 
     text-align: center;
-    margin:auto;
     width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f5ef;
+    border-radius:10px;
+    margin-right: 30px;
+    padding:40px;
+    box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+      0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   }
+
+  .payment-container h2{
+
+    color:#E88F29;
+    padding-bottom:10px;
+  }
+
+  .payment-main{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:90vh;
+    
+  }
+
+ 
+
+  .payment-details{
+
+    width:50vh;
+    padding-top:43px;
+    padding-bottom:34px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    background-color: #f7f5ef;
+    margin-left: 20px;
+    border-radius:10px;
+    box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+      0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    
+  }
+
+  .payment-details img{
+
+    border-radius:20px;
+    object-fit: contain;
+    width:15vh;
+    margin-bottom: 13px;
+  
+
+  }
+
+  .checkout-inside {
+
+    box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    border-radius:7px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top:15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+   
+   
+    
+    
+  }
+  .payment-details h2{
+
+    color:#E88F29;
+    padding-bottom:20px;
+  }
+ 
+ 
   
   @keyframes loading {
     0% {
@@ -194,5 +274,22 @@
     form, #dpm-annotation, #payment-status {
       width: 80vw;
       min-width: initial;
+    }
+  }
+
+  @media screen and (max-width:950px){
+
+    .payment-main{
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      height:150vh;
+    }
+    .payment-details {
+      width:76vh;
+      margin-right:45px;
     }
   }

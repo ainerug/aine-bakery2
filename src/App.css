@@ -627,13 +627,13 @@ border-radius: 8px;
 
 .returned-cake-div {
 
-  width:20%;
+  width:27%;
   color:#E88F29;
   border-radius: 10px;
-  background-color: #E6DFD6;
+  background-color: #F7F5EF;
   text-align:center;
-  padding-bottom:22px;
-  padding-top:22px;
+  padding-bottom:20px;
+  padding-top:20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
 
@@ -679,11 +679,11 @@ border-radius: 8px;
 
 .order-cake-form{
 
-  width:40%;
+  width:35%;
   border-radius:10px;
-  background-color: #E6DFD6;
+  background-color: #F7F5EF;
   text-align: center;
-  padding-bottom:18px;
+  padding-bottom:22px;
 }
 
 .order-cake-form h2{
@@ -1219,3 +1219,5 @@ border-radius: 8px;
 .cancel-button:hover {
   background-color: #D9363E;
 }
+
+
