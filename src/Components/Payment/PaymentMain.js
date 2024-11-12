@@ -61,7 +61,7 @@ export default function PaymentMain() {
   return (
     <div className="payment-main">
     <div className="payment-container">
-      <h1>Your Total Payment is: €{price} </h1>
+      <h2>Your Total Payment is: €{price} </h2>
       {clientSecret && (
         <Elements
           options={{ clientSecret, appearance, loader }}
