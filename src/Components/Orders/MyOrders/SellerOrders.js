@@ -46,7 +46,8 @@ export default function SellerOrders() {
             flavor: cakeData[i].flavor,
             image: cakeData[i].image,
             price: cakeData[i].price,
-            isPaid: ordersData[i].isPaid
+            isPaid: ordersData[i].isPaid,
+            customerId: ordersData[i].customerId
           });
         }
 
@@ -94,6 +95,48 @@ export default function SellerOrders() {
     setIsOpen(false);
   }
 
+  const addToWallet =(orderId, customerId, amount, cakeName, orderStatus, cakeId)=>{
+
+    const payload ={
+
+    orderId,
+    customerId,
+    amount, 
+    cakeName,
+    orderStatus,
+    cakeId,
+    sellerId
+
+    }
+
+    axios.post("http://localhost:8080/wallet/" ,payload).then((res)=>{
+      console.log('wallet');
+      console.log(res);
+    }).catch((e)=>{
+      console.log('wallet');
+      console.log(e);
+    })
+  }
+
+
+  const updateWallet =(orderId, orderStatus)=>{
+
+    const payload ={
+
+    orderId,
+    orderStatus,
+   
+
+    }
+
+    axios.patch("http://localhost:8080/wallet/" + orderId ,payload).then((res)=>{
+      console.log('wallet');
+      console.log(res);
+    }).catch((e)=>{
+      console.log('wallet');
+      console.log(e);
+    })
+  }
   return (
 
     <div>
@@ -198,6 +241,7 @@ export default function SellerOrders() {
                         className="myorders-button accept-button"
                         onClick={() => {
                           updateStatus("ongoing", item.id);
+                          addToWallet(item.id, item.customerId, item.price, item.cakeName, "ongoing", item.cakeId);
                         }}
                       >
                         Accept
@@ -219,6 +263,7 @@ export default function SellerOrders() {
                         className="myorders-button accept-button"
                         onClick={() => {
                           updateStatus("completed", item.id);
+                          updateWallet(item.id, "completed")
                         }}
                       >
                         Completed
