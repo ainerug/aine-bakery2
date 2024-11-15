@@ -1066,6 +1066,34 @@ border-radius: 8px;
     font-size:12px;
     padding-top:3px;
   }
+
+  .buttons-div {
+
+    width:25vh;
+    margin-bottom:10px;
+    
+  }
+
+  .addCake-form{
+
+    width:40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+
+  .white-line-form{
+    width:35vh;
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    flex-direction: column;
+  }
+
+  .addCake-form input{
+    width:30vh;
+  }
 }
 
 
