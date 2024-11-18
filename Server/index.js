@@ -267,10 +267,23 @@ app.get("/wallet/:userId", async (req, res) => {
 
     const totalEarnings = await Wallet.find({sellerId: userId, orderStatus: "completed"});
     const expectedEarnings =await  Wallet.find({sellerId: userId, orderStatus: "ongoing"});
+    const canceledEarnings =await  Wallet.find({sellerId: userId, orderStatus: "canceled"});
+
 
     let sum = 0;
+    let totalCancelationSum = 0;
+    let totalExpectedSum = 0;
+
     for(let i = 0; i < totalEarnings.length; i++){
       sum += totalEarnings[i].amount;
+    }
+
+    for(let i = 0; i < expectedEarnings.length; i++){
+      totalExpectedSum += expectedEarnings[i].amount;
+    }
+
+    for(let i = 0; i < canceledEarnings.length; i++){
+      totalCancelationSum += canceledEarnings[i].amount;
     }
 
     let avgOrderPrice = sum / totalEarnings.length;
@@ -278,7 +291,10 @@ app.get("/wallet/:userId", async (req, res) => {
     res.status(200).send({
       totalEarnings,
       expectedEarnings,
-      avgOrderPrice
+      avgOrderPrice,
+      "totalEarningsSum": sum,
+      "totalExpectedEarningsSum": totalExpectedSum,
+      "totalCanceled": totalCancelationSum
     })
     
   } catch (error) {
