@@ -23,6 +23,7 @@ import Login from './Components/Auth/Login/Login';
 import SellerOrders from './Components/Orders/MyOrders/SellerOrders';
 import PaymentMain from './Components/Payment/PaymentMain';
 import PaymentComplete from './Components/Payment/PaymentComplete';
+import Wallet from './Components/Wallet/Wallet';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path='/signup' element={<><Navbar/> <Header headerName="Sign Up"/> <Signup/> <Footer/></>}/> 
       <Route path='/contact' element={<><Navbar/> <Header headerName="Contact Us"/> <Contact/> <Footer/></>}/> 
       <Route path='/mycakes' element={<><Navbar/> <Header headerName="My Cakes"/> <MyCakes/> <Footer/></>}/> 
+      <Route path='/wallet' element={<><Navbar/> <Header headerName="Wallet"/> <Wallet/> <Footer/></>}/> 
       <Route path='/payment' element={<><Navbar/> <PaymentMain/> <Footer/></>}/> 
       <Route path='/complete/:orderId' element={<><Navbar/> <PaymentComplete/> <Footer/></>}/>
       

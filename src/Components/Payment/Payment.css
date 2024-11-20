@@ -10,7 +10,7 @@
     padding: 40px;
     margin-top: auto;
     margin-bottom: auto;
-    background-color: #F7F5EF;
+    background-color: #FFFFFF;
   }
   
   
@@ -176,7 +176,7 @@
     width: fit-content;
     display: flex;
     flex-direction: column;
-    background-color: #f7f5ef;
+    background-image: url('../../img/bg.jpg');
     border-radius:10px;
     margin-right: 30px;
     padding:40px;
@@ -210,7 +210,7 @@
     flex-direction: column;
     justify-content:  center;
     align-items: center;
-    background-color: #f7f5ef;
+    background-image: url('../../img/bg.jpg');
     margin-left: 20px;
     border-radius:10px;
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),

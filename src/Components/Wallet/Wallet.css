@@ -1,0 +1,120 @@
+.analytics-container{
+
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.analytics{
+
+    padding:20px;
+    background-color: #242324;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    width:30vh;
+    margin-top:30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analytics p{
+
+    color: white;
+}
+.analytics h2{
+
+    color: #E88F29;
+}
+.analytics:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.table-container {
+
+    
+    padding:40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-container h2{
+
+    text-align: center;
+    padding-top:30px;
+    padding-bottom:20px;
+
+}
+.earnings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    overflow: hidden;  
+    
+  }
+
+  .earnings-table th,
+.earnings-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left; 
+}
+
+.earnings-table th {
+    background-color: #242324;
+    color: #E88F29;
+    font-weight: bold; 
+  }
+
+  .earnings-table tbody tr:nth-child(even) {
+    background-color: #fff; 
+  }
+  .earnings-table tbody tr:nth-child(odd) {
+     
+     background-color:#E88F29;
+}
+.earnings-table td {
+    color: #242324;}
+
+
+
+    @media screen and (max-width: 1053px){
+
+        .earnings-table th,
+        .earnings-table td {
+            padding: 8px; 
+            font-size: 14px; 
+        }
+    }
+
+    @media screen and (max-width: 919px){
+
+        .earnings-table th,
+        .earnings-table td {
+            padding: 5px; 
+            font-size: 12px; 
+        }
+    }
+
+    .earnings-table {
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    @media screen and (max-width: 730px){
+
+        .earnings-table th,
+        .earnings-table td {
+            padding: 3px; 
+            font-size: 12px; 
+        }
+
+        .earnings-table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap; 
+        }
+    }

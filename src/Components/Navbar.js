@@ -163,8 +163,20 @@ export default function Navbar() {
             >
               My Orders
             </Link>
+
+            <Link
+              to="/wallet"
+              className={`nav-item nav-link ${
+                option === "wallet" ? "active" : null
+              }`}
+              onClick={() => setOption("wallet")}
+            >
+              Wallet
+            </Link>
            
            </>:null}
+
+
             
             {!id?<>
 

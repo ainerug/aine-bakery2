@@ -298,9 +298,9 @@ h6,
 .addCake-form{
 
   width: 60%;
-  background-color: #E6DFD6;
+  background-image: url('../src/img/bg.jpg'); 
   background-size: cover;
-  color: #2B2825;
+  color: white;
   padding: 40px;
   border-radius: 15px;
   margin: auto;
@@ -358,24 +358,16 @@ h6,
 
 .cakes {
 
-width: 280px;
+width: 250px;
 padding: 20px;
-background-color: #E6DFD6;
-background-size: cover;
-color: #352d27;
+background-image: url('../src/img/bg.jpg'); 
+color: white;
 text-align: center;
 transition: transform 0.3s ease;
 border-radius: 8px;
 }
 
-.cakes-white-line {
 
-  min-height: 420px;
-  padding: 25px;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  
-}
 
 .cakes:hover {
   transform: scale(1.05);
@@ -399,7 +391,7 @@ border-radius: 8px;
 .cakes p {
 
   margin: 5px 0;
-  color: #352d27;
+  color: white;
   font-size: 14px;
   
 }
@@ -425,13 +417,13 @@ border-radius: 8px;
 
 .icon-euro {
 
-  color: #2b282677;;
+  color: white;
   margin-right: 5px;
 }
 
 .icon-flavor {
 
-  color: #2b282677;;
+  color: white;
   margin-right: 5px;
   font-size: 13px;
 }
@@ -480,7 +472,7 @@ border-radius: 8px;
 }
 
 .options-toggler {
-  background-color: #E6DFD6;
+  background-image: url('../src/img/bg.jpg'); 
   font-weight: 600;
 }
 
@@ -508,7 +500,7 @@ border-radius: 8px;
 
   font-size: 20px;
   cursor: pointer;
-  color: #2b282677;
+  color: #E88F29;
   transition: transform 0.3s ease;
   padding-top:5px;
   
@@ -564,15 +556,17 @@ border-radius: 8px;
 }
 
 .modal-container {
-  background-color: #E6DFD6;
+  background-image: url('../src/img/bg.jpg'); 
   padding: 30px;
   border: none;
   border-radius: 8px;
+  color: white;
 }
 
 .modal-container h2 {
 
   font-size: 22px;
+  color: white;
 }
 .modal-button {
 
@@ -628,9 +622,9 @@ border-radius: 8px;
 .returned-cake-div {
 
   width:27%;
-  color:#E88F29;
+  color: white;
   border-radius: 10px;
-  background-color: #F7F5EF;
+  background-image: url('../src/img/bg.jpg'); 
   text-align:center;
   padding-bottom:20px;
   padding-top:20px;
@@ -640,7 +634,7 @@ border-radius: 8px;
 }
 
 .returned-cake-div h2{
-  color:#E88F29;
+  color: white;
   margin-bottom:15px;
   font-size: 27px;
   padding-top: 15px;
@@ -650,7 +644,7 @@ border-radius: 8px;
 }
 .returned-cake-div p {
   font-size: 15px;
-  color: #4D4D4D;
+  color: white;
   padding-left:9px;
   padding-right:20px;
 
@@ -681,13 +675,13 @@ border-radius: 8px;
 
   width:35%;
   border-radius:10px;
-  background-color: #F7F5EF;
+  background-image: url('../src/img/bg.jpg');
   text-align: center;
   padding-bottom:22px;
 }
 
 .order-cake-form h2{
-  color:#E88F29;
+  color: white;
   padding-top:28px;
 }
 
@@ -771,8 +765,8 @@ border-radius: 8px;
 }
 
 .userInformation-div {
-  background-color: #E6DFD6; 
-  border: 2px solid #F7F5EF; 
+  background-image: url('../src/img/bg.jpg');
+  border: 0.5px solid #F7F5EF; 
   width:43vh;
   border-radius: 15px;
   padding-left:10px;
@@ -785,7 +779,7 @@ border-radius: 8px;
 }
 
 .userInformation-div h3 {
-  color: #E88F29; 
+  color: white;
   font-size: 20px;
   font-weight: 700; 
   margin-top: 10px;
@@ -816,7 +810,7 @@ border-radius: 8px;
 
 .second-orders-div {
 
-  background-color: #F7F5EF;
+  background-image: url('../src/img/bg.jpg');
   width:80%;
   justify-content: space-evenly;
   align-items: center;
@@ -835,8 +829,8 @@ border-radius: 8px;
 
   display: flex;
   flex-wrap: wrap;
-  border-radius:10px;
-  color:#E88F29;
+  border: none;
+  color:white;
   justify-content: space-between;
   font-size:14px;
   font-weight: bolder;
@@ -845,7 +839,7 @@ border-radius: 8px;
   padding-right:20px;
   padding-top:10px;
   width:100%;
-  background-color: #E6DFD6;
+  background-color: #2A2825;
 
 
 }
@@ -854,7 +848,7 @@ border-radius: 8px;
 .order-number-id h2 {
 
   font-size:15px;
-  color:#E88F29;
+  color:white;
 
 
 
@@ -866,19 +860,19 @@ border-radius: 8px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#E6DFD6;
+  background-image: url('../src/img/bg.jpg');
   padding-right:10px;
   padding-left:10px;
   margin-top:5px;
   margin-bottom:20px;
   border-radius:15px;
-  border: 2px solid #F7F5EF; 
+  border: 0.5px solid #F7F5EF; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .cake-card h3{
 
-  color:#E88F29;
+  color: white;
   font-size:20px;
   padding-bottom:20px;
   padding-top:20px;

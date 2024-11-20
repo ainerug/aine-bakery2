@@ -273,6 +273,7 @@ export default function SellerOrders() {
                         onClick={() => {
                           
                             openModal(item.id)
+                            updateWallet(item.id, "canceled")
                        
                         }}
                       >
