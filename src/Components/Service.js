@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 export default function Service() {
   return (
@@ -15,46 +16,41 @@ export default function Service() {
             <div class="bg-primary border-inner text-center text-white p-5">
               <h4 class="text-uppercase mb-3">Birthday Cake</h4>
               <p>
-                Ipsum ipsum clita erat amet dolor sit justo sea eirmod diam stet
-                sit justo amet tempor amet kasd lorem dolor ipsum
+              Celebrate with our delicious, custom-made birthday cakes, perfect for every special occasion.
               </p>
-              <a class="text-uppercase text-dark" href=""
-                >Read More <i class="bi bi-arrow-right"></i
-              >
-              <FontAwesomeIcon icon={faArrowRight} className='bi bi-arrow-right'/></a>
+              <Link to="/cakes" class="text-uppercase text-dark" href=""
+                >Explore <i class="bi bi-arrow-right"></i
+              ><FontAwesomeIcon icon={faArrowRight} className='bi bi-arrow-right'/></Link>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="bg-primary border-inner text-center text-white p-5">
               <h4 class="text-uppercase mb-3">Wedding Cake</h4>
               <p>
-                Ipsum ipsum clita erat amet dolor sit justo sea eirmod diam stet
-                sit justo amet tempor amet kasd lorem dolor ipsum
+              Our wedding cakes are designed to be as beautiful as your special day, crafted with love and attention to detail.
               </p>
-              <a class="text-uppercase text-dark" href=""
-                >Read More <i class="bi bi-arrow-right"></i
-              ><FontAwesomeIcon icon={faArrowRight} className='bi bi-arrow-right'/></a>
+              <Link to="/cakes" class="text-uppercase text-dark" href=""
+                >Explore <i class="bi bi-arrow-right"></i
+              ><FontAwesomeIcon icon={faArrowRight} className='bi bi-arrow-right'/></Link>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="bg-primary border-inner text-center text-white p-5">
               <h4 class="text-uppercase mb-3">Custom Cake</h4>
               <p>
-                Ipsum ipsum clita erat amet dolor sit justo sea eirmod diam stet
-                sit justo amet tempor amet kasd lorem dolor ipsum
+              Create your perfect custom cake with unique flavors and designs tailored to your preferences for any occasion
               </p>
-              <a class="text-uppercase text-dark" href=""
-                >Read More <i class="bi bi-arrow-right"></i
-              ><FontAwesomeIcon icon={faArrowRight} className='bi bi-arrow-right'/></a>
+              <Link to="/cakes" class="text-uppercase text-dark" href=""
+                >Explore <i class="bi bi-arrow-right"></i
+              ><FontAwesomeIcon icon={faArrowRight} className='bi bi-arrow-right'/></Link>
             </div>
           </div>
           <div class="col-lg-12 col-md-6 text-center">
             <h1 class="text-uppercase text-light mb-4">
-              30% Discount For This Summer
+            Celebrate with Our Special Cakes
             </h1>
-            <a href="" class="btn btn-primary border-inner py-3 px-5"
-              >Order Now</a
-            >
+            <Link to= "/cakes" className="btn btn-primary border-inner py-3 px-5"
+              >Order Now</Link>
           </div>
         </div>
       </div>

@@ -35,11 +35,7 @@ export default function Footer() {
                   </h1>
                 </span>
                 <p className="mt-3">
-                  Lorem diam sit erat dolor elitr et, diam lorem justo labore
-                  amet clita labore stet eos magna sit. Elitr dolor eirmod duo
-                  tempor lorem, elitr clita ipsum sea. Nonumy rebum et takimata
-                  ea takimata amet gubergren, erat rebum magna lorem stet eos.
-                  Diam amet et kasd eos duo dolore no.
+                At our cake shop, we specialize in creating unforgettable birthday cakes, elegant wedding cakes, and custom-made cakes for any occasion. Whether you're celebrating a milestone or just indulging in a sweet treat, our cakes are crafted to make your day extra special!
                 </p>
               </div>
             </div>
@@ -114,22 +110,14 @@ export default function Footer() {
                       />
                       Cakes
                     </Link>
-                    <span className="text-secondary mb-2">
+                    <Link to="/signup" className="text-secondary mb-2">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         className="bi bi-arrow-right text-primary me-2"
                       />
-                      Meet The Team
-                    </span>
-                    <span className="text-secondary mb-2">
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="bi bi-arrow-right text-primary me-2"
-                      />
-                      Latest Blog
-                    </span>
-                    <Link to="/contact"  className="text-secondary">
-               
+                      Sign Up
+                    </Link>
+                    <Link to="/contact" className="text-secondary mb-2">
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         className="bi bi-arrow-right text-primary me-2"
@@ -141,7 +129,7 @@ export default function Footer() {
                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                   <h4 className="text-primary text-uppercase mb-4">Newsletter</h4>
                   <p>
-                    Amet justo diam dolor rebum lorem sit stet sea justo kasd
+                  Sign up now for our sweet cake shop news and special offers today!
                   </p>
                   <form action="">
                     <div className="input-group">

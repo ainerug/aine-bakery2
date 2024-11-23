@@ -47,8 +47,8 @@ export default function Team() {
                 </div>
               </div>
               <div class="bg-dark border-inner text-center p-4">
-                <h4 class="text-uppercase text-primary">Full Name</h4>
-                <p class="text-white m-0">Designation</p>
+                <h4 class="text-uppercase text-primary">John Doe</h4>
+                <p class="text-white m-0">Customer Relations Manager</p>
               </div>
             </div>
           </div>
@@ -82,8 +82,8 @@ export default function Team() {
                 </div>
               </div>
               <div class="bg-dark border-inner text-center p-4">
-                <h4 class="text-uppercase text-primary">Full Name</h4>
-                <p class="text-white m-0">Designation</p>
+                <h4 class="text-uppercase text-primary">Justin Lee</h4>
+                <p class="text-white m-0">Cake Decorator</p>
               </div>
             </div>
           </div>
@@ -117,8 +117,8 @@ export default function Team() {
                 </div>
               </div>
               <div class="bg-dark border-inner text-center p-4">
-                <h4 class="text-uppercase text-primary">Full Name</h4>
-                <p class="text-white m-0">Designation</p>
+                <h4 class="text-uppercase text-primary">Jane Smith</h4>
+                <p class="text-white m-0">Head Baker</p>
               </div>
             </div>
           </div>

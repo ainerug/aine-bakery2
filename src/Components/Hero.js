@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 import {Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export default function Hero() {
@@ -36,21 +37,9 @@ export default function Hero() {
               </h1>
             </div>
             <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5 pb-5 hero-button-div">
-              <span className="btn btn-primary border-inner py-3 px-5 me-5">
-                Read More
-              </span>
-              <button
-                type="button"
-                className="btn-play"
-                data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                data-bs-target="#videoModal"
-              >
-                <span></span>
-              </button>
-              <h5 className="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">
-                Play Video
-              </h5>
+              <Link to="/cakes" className="btn btn-primary border-inner py-3 px-5 me-5">
+                Our Cakes
+              </Link>
             </div>
             </div>
           </SwiperSlide>
@@ -68,21 +57,9 @@ export default function Hero() {
               </h1>
             </div>
             <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5 pb-5 hero-button-div">
-              <span className="btn btn-primary border-inner py-3 px-5 me-5">
-                Read More
-              </span>
-              <button
-                type="button"
-                className="btn-play"
-                data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                data-bs-target="#videoModal"
-              >
-                <span></span>
-              </button>
-              <h5 className="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">
-                Play Video
-              </h5>
+            <Link to="/cakes" className="btn btn-primary border-inner py-3 px-5 me-5">
+                Our Cakes
+              </Link>
             </div>
             </div>
           </SwiperSlide>
@@ -100,21 +77,9 @@ export default function Hero() {
               </h1>
             </div>
             <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5 pb-5 hero-button-div">
-              <span className="btn btn-primary border-inner py-3 px-5 me-5">
-                Read More
-              </span>
-              <button
-                type="button"
-                className="btn-play"
-                data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                data-bs-target="#videoModal"
-              >
-                <span></span>
-              </button>
-              <h5 className="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">
-                Play Video
-              </h5>
+            <Link to="/cakes" className="btn btn-primary border-inner py-3 px-5 me-5">
+                Our Cakes
+              </Link>
             </div>
             </div>
           </SwiperSlide>

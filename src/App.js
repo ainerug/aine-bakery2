@@ -6,7 +6,6 @@ import About from './Components/About';
 import Facts from './Components/Facts';
 import Service from './Components/Service';
 import Team from './Components/Team';
-import Offer from './Components/Offer';
 import Testimonial from './Components/Testimonial';
 import Footer from './Components/Footer';
 import AddCakes from './Components/Cakes/AddCakes/AddCakes';
@@ -30,7 +29,7 @@ function App() {
    <div>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<><Navbar/> <Hero/> <About/> <Facts/> <AllCakes/> <Service/> <Team/> <Offer/> <Testimonial/><Footer/></>}/>
+      <Route path='/' element={<><Navbar/> <Hero/> <About/> <Facts/> <AllCakes/> <Service/> <Team/> <Testimonial/><Footer/></>}/>
       <Route path='/about' element={<><Navbar/> <Header headerName="About Us"/> <About/> <Facts/>  <Footer/></>}/>
       <Route path='/addcakes' element={<><Navbar/> <Header headerName="Add a Cake"/> <AddCakes/> <Footer/></>}/>
       <Route path='/cakes' element={<><Navbar/> <Header headerName="Cakes"/> <AllCakes/><Footer/></>}/>

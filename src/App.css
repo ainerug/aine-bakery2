@@ -260,7 +260,7 @@ h6,
 }
 
 .contact::after {
-  background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(./img/bg.jpg) center center no-repeat;
+  background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(./img/background.png) center center no-repeat;
   background-size: cover;
 }
 
@@ -291,14 +291,15 @@ h6,
 
 
 .bg-img {
-  background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(./img/bg.jpg) center center no-repeat;
+  background: linear-gradient(rgba(43, 40, 37, .5), rgba(43, 40, 37, .5)), url(./img/background.png) center center no-repeat;
   background-size: cover;
 }
 
 .addCake-form{
 
   width: 60%;
-  background-image: url('../src/img/bg.jpg'); 
+  background-image: url('../src/img/background.png'), linear-gradient(rgba(0, 0, 0, 0.923), rgba(0, 0, 0, 0.841)); 
+  background-repeat: no-repeat;
   background-size: cover;
   color: white;
   padding: 40px;
@@ -360,7 +361,9 @@ h6,
 
 width: 250px;
 padding: 20px;
-background-image: url('../src/img/bg.jpg'); 
+background-image: url('../src/img/background.png'), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+background-size: cover;
+background-repeat: no-repeat;
 color: white;
 text-align: center;
 transition: transform 0.3s ease;
@@ -472,7 +475,7 @@ border-radius: 8px;
 }
 
 .options-toggler {
-  background-image: url('../src/img/bg.jpg'); 
+  background-image: url('../src/img/background.png'); 
   font-weight: 600;
 }
 
@@ -556,8 +559,10 @@ border-radius: 8px;
 }
 
 .modal-container {
-  background-image: url('../src/img/bg.jpg'); 
+  background-image: url('../src/img/background.png'); 
   padding: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
   border: none;
   border-radius: 8px;
   color: white;
@@ -624,7 +629,9 @@ border-radius: 8px;
   width:27%;
   color: white;
   border-radius: 10px;
-  background-image: url('../src/img/bg.jpg'); 
+  background-image: url('../src/img/background.png'), linear-gradient(rgba(0, 0, 0, 0.923), rgba(0, 0, 0, 0.841)); 
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align:center;
   padding-bottom:20px;
   padding-top:20px;
@@ -675,7 +682,9 @@ border-radius: 8px;
 
   width:35%;
   border-radius:10px;
-  background-image: url('../src/img/bg.jpg');
+  background-image: url('../src/img/background.png'), linear-gradient(rgba(0, 0, 0, 0.923), rgba(0, 0, 0, 0.841));
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
   padding-bottom:22px;
 }
@@ -765,7 +774,9 @@ border-radius: 8px;
 }
 
 .userInformation-div {
-  background-image: url('../src/img/bg.jpg');
+  background-image: url('../src/img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   border: 0.5px solid #F7F5EF; 
   width:43vh;
   border-radius: 15px;
@@ -810,7 +821,9 @@ border-radius: 8px;
 
 .second-orders-div {
 
-  background-image: url('../src/img/bg.jpg');
+  background-image: url('../src/img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   width:80%;
   justify-content: space-evenly;
   align-items: center;
@@ -860,7 +873,9 @@ border-radius: 8px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../src/img/bg.jpg');
+  background-image: url('../src/img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   padding-right:10px;
   padding-left:10px;
   margin-top:5px;
@@ -1147,7 +1162,7 @@ border-radius: 8px;
 .testimonial-container {
 
   height:60vh;
-  width:80%;
+  width:90%;
   color:white;
   margin:auto;
   font-family: sans-serif;
@@ -1163,7 +1178,8 @@ border-radius: 8px;
 
   border: 1px solid white;
   margin-top:20px;
-  background-color: #2B2826;
+  background-image: url("../src/img/background.png");
+  background-size: cover;
   border-radius:10px;
   margin-left:5px;
   margin-right:5px;
