@@ -24,6 +24,23 @@ export default function Facts() {
             }}
             loop={true}
             speed={1000}
+            breakpoints={{
+              
+              530: {
+                slidesPerView: 1, 
+                spaceBetween: 10,
+              },
+             
+              768: {
+                slidesPerView: 2, 
+                spaceBetween: 20,
+              },
+             
+              992: {
+                slidesPerView: 3, 
+                spaceBetween: 30,
+              },
+            }}
           >
             <SwiperSlide>
              

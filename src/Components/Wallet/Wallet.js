@@ -61,6 +61,7 @@ export default function Wallet() {
       y: {
         ticks: {
           color: 'white', // Y-axis label text color
+          callback: (value) => `€${value}`, 
         },
         grid: {
           color: 'white', // Horizontal grid lines color
@@ -105,6 +106,7 @@ export default function Wallet() {
       y: {
         ticks: {
           color: 'white', // Y-axis label text color
+          callback: (value) => `€${value}`, 
         },
         grid: {
           color: 'white', // Horizontal grid lines color
@@ -216,29 +218,29 @@ export default function Wallet() {
     <div className="analytics-container">
       <div className="analytics">
         <p>Current Balance: </p>
-        <h2>${wallet.totalEarningsSum}</h2>
+        <h2>€{wallet.totalEarningsSum}</h2>
       </div>
       <div className="analytics">
         <p>Expected Earnings: </p>
-        <h2>${wallet.totalExpectedEarningsSum}</h2>
+        <h2>€{wallet.totalExpectedEarningsSum}</h2>
       </div>
       <div className="analytics">
         <p>Canceled Orders: </p>
-        <h2> -${wallet.totalCanceled}</h2>
+        <h2> -€{wallet.totalCanceled}</h2>
       </div>
       <div className="analytics">
         <p>Average Order Price: </p>
-        <h2> ${wallet.avgOrderPrice}</h2>
+        <h2> €{wallet.avgOrderPrice}</h2>
       </div>
     </div>
 
     <div className="chart-container">
       <div className="chart-current">
-      <h2>Current Data</h2>
+      <h2>Current Earnings</h2>
     <Line data={data} options={options} />
     </div>
     <div className="chart-future">
-    <h2>Expected Data</h2>
+    <h2>Expected Earnings</h2>
     <Line data={dataExpected} options={optionsExpected} />
     </div>
     </div>

@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faBirthdayCake, faPhoneSquare,  } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBirthdayCake,
+  faPhoneSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-
 
 export default function Navbar() {
   const [option, setOption] = useState("home");
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const id = localStorage.getItem("userId");
   const accountType = localStorage.getItem("accountType");
   const navigate = useNavigate();
 
-  const logout =()=>{
+  const toggleMenu = ()=>{
+    setMenuOpen(!isMenuOpen);
+  }
 
+  const logout = () => {
     localStorage.removeItem("userName");
     localStorage.removeItem("email");
     localStorage.removeItem("userId");
     localStorage.removeItem("accountType");
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   return (
     <div>
@@ -32,17 +38,22 @@ export default function Navbar() {
               />
               <div className="text-start">
                 <h6 className="text-uppercase mb-1">Email Us</h6>
-                <span>info@example.com</span>
+                <a
+                  href="mailto:info@example.com"
+                  className="text-decoration-none"
+                >
+                  info@example.com
+                </a>
               </div>
             </div>
           </div>
-          <div className="col-lg-4 text-center bg-primary border-inner py-3">
-            <div className="d-inline-flex align-items-center justify-content-center">
+          <div className="col-lg-4 text-center ms-auto bg-primary border-inner py-3">
+            <div className="navbar-brand  d-inline-flex align-items-center justify-content-center">
               <Link to="index.html" className="navbar-brand">
                 <h1 className="m-0 text-uppercase text-white">
                   <FontAwesomeIcon
                     icon={faBirthdayCake}
-                    className="fa fa-birthday-cake fs-1 text-dark me-3"
+                    className="navbar-icon fa fa-birthday-cake fs-1 text-dark me-3"
                   />
                   CakeZone
                 </h1>
@@ -59,7 +70,9 @@ export default function Navbar() {
                   />
                   Call Us
                 </h6>
-                <span>+012 345 6789</span>
+                <a href="tel:+012 345 6789" className="text-decoration-none">
+                  +012 345 6789
+                </a>
               </div>
             </div>
           </div>
@@ -77,14 +90,13 @@ export default function Navbar() {
           </h1>
         </span>
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler ${isMenuOpen ? "collapsed" : ""}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
+          onClick={toggleMenu}>
+            
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarCollapse">
+        <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
           <div className="navbar-nav ms-auto mx-lg-auto py-0">
             <Link
               to="/"
@@ -113,87 +125,83 @@ export default function Navbar() {
             >
               Cakes
             </Link>
-            {id && accountType === "seller"? <>
-            
-              <Link
-              to="/addcakes"
-              className={`nav-item nav-link ${
-                option === "add cake" ? "active" : null
-              }`}
-              onClick={() => setOption("add cake")}
-            >
-              Add a Cake
-            </Link>
-            
-            </>:null}
-            {id && accountType === "seller"? <>
-            
-            <Link
-            to="/mycakes"
-            className={`nav-item nav-link ${
-              option === "my cakes" ? "active" : null
-            }`}
-            onClick={() => setOption("my cakes")}
-          >
-            My Cakes
-          </Link>
-          
-          </>:null}
-           {id && accountType === "customer"?<>
+            {id && accountType === "seller" ? (
+              <>
+                <Link
+                  to="/addcakes"
+                  className={`nav-item nav-link ${
+                    option === "add cake" ? "active" : null
+                  }`}
+                  onClick={() => setOption("add cake")}
+                >
+                  Add a Cake
+                </Link>
+              </>
+            ) : null}
+            {id && accountType === "seller" ? (
+              <>
+                <Link
+                  to="/mycakes"
+                  className={`nav-item nav-link ${
+                    option === "my cakes" ? "active" : null
+                  }`}
+                  onClick={() => setOption("my cakes")}
+                >
+                  My Cakes
+                </Link>
+              </>
+            ) : null}
+            {id && accountType === "customer" ? (
+              <>
+                <Link
+                  to="/customerorders"
+                  className={`nav-item nav-link ${
+                    option === "customer orders" ? "active" : null
+                  }`}
+                  onClick={() => setOption("customer orders")}
+                >
+                  My Orders
+                </Link>
+              </>
+            ) : null}
+            {id && accountType === "seller" ? (
+              <>
+                <Link
+                  to="/sellerorders"
+                  className={`nav-item nav-link ${
+                    option === "seller orders" ? "active" : null
+                  }`}
+                  onClick={() => setOption("seller orders")}
+                >
+                  My Orders
+                </Link>
 
-            <Link
-              to="/customerorders"
-              className={`nav-item nav-link ${
-                option === "customer orders" ? "active" : null
-              }`}
-              onClick={() => setOption("customer orders")}
-            >
-              My Orders
-            </Link>
-           
-           </>:null}
-           {id && accountType === "seller"?<>
+                <Link
+                  to="/wallet"
+                  className={`nav-item nav-link ${
+                    option === "wallet" ? "active" : null
+                  }`}
+                  onClick={() => setOption("wallet")}
+                >
+                  Wallet
+                </Link>
+              </>
+            ) : null}
 
-            <Link
-              to="/sellerorders"
-              className={`nav-item nav-link ${
-                option === "seller orders" ? "active" : null
-              }`}
-              onClick={() => setOption("seller orders")}
-            >
-              My Orders
-            </Link>
+            {!id ? (
+              <>
+                <Link
+                  to="/login"
+                  className={`nav-item nav-link ${
+                    option === "login" ? "active" : null
+                  }`}
+                  onClick={() => setOption("login")}
+                >
+                  Login
+                </Link>
+              </>
+            ) : null}
 
-            <Link
-              to="/wallet"
-              className={`nav-item nav-link ${
-                option === "wallet" ? "active" : null
-              }`}
-              onClick={() => setOption("wallet")}
-            >
-              Wallet
-            </Link>
-           
-           </>:null}
-
-
-            
-            {!id?<>
-
-              <Link
-              to="/login"
-              className={`nav-item nav-link ${
-                option === "login" ? "active" : null
-              }`}
-              onClick={() => setOption("login")}
-            >
-              Login
-            </Link>
-            
-            
-            </>:null
-            }
-           
             <Link
               to="/contact"
               className={`nav-item nav-link ${
@@ -204,10 +212,13 @@ export default function Navbar() {
               <span className="contact-link">Contact Us</span>
             </Link>
 
-            {id? <>
-            
-            <button className="btn btn-primary" onClick={logout}>Log Out</button>
-            </>: null}
+            {id ? (
+              <>
+                <button className="btn btn-primary" onClick={logout}>
+                  Log Out
+                </button>
+              </>
+            ) : null}
           </div>
         </div>
       </nav>

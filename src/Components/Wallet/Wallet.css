@@ -9,7 +9,8 @@
 .analytics{
 
     padding:20px;
-    background-color: #242324;
+    background-image: url('../../img/background.png');
+    border: 2px solid #E88F29;
     color: white;
     border-radius: 10px;
     text-align: center;
@@ -28,7 +29,7 @@
     color: #E88F29;
 }
 .analytics:hover {
-    transform: scale(1.03); 
+    transform: scale(1.08); 
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 

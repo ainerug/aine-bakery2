@@ -206,7 +206,7 @@ export default function SellerOrders() {
                     <span>ID:{item.cakeId}</span>
                   </div>
 
-                  <div className="second-orders-div">
+                  <div className="second-orders-div-inner">
                     <div className="order-user-box">
                       <div className="cake-card">
                         <h3>{item.cakeName}</h3>

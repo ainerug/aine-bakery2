@@ -7,7 +7,7 @@ import Facts from './Components/Facts';
 import Service from './Components/Service';
 import Team from './Components/Team';
 import Testimonial from './Components/Testimonial';
-import Footer from './Components/Footer';
+import Footer from './Components/Footer/Footer';
 import AddCakes from './Components/Cakes/AddCakes/AddCakes';
 import AllCakes from './Components/Cakes/AllCakes/AllCakes';
 import EditCakes from './Components/Cakes/EditCakes/EditCakes';
@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<><Navbar/> <Hero/> <About/> <Facts/> <AllCakes/> <Service/> <Team/> <Testimonial/><Footer/></>}/>
-      <Route path='/about' element={<><Navbar/> <Header headerName="About Us"/> <About/> <Facts/>  <Footer/></>}/>
+      <Route path='/about' element={<><Navbar/> <Header headerName="About Us"/> <About/> <Facts/> <Service/> <Footer/></>}/>
       <Route path='/addcakes' element={<><Navbar/> <Header headerName="Add a Cake"/> <AddCakes/> <Footer/></>}/>
       <Route path='/cakes' element={<><Navbar/> <Header headerName="Cakes"/> <AllCakes/><Footer/></>}/>
       <Route path='/editcakes' element={<><Navbar/> <Header headerName="Edit Cake"/> <EditCakes/> <Footer/></>}/>

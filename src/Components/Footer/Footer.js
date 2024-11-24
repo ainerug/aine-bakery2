@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Footer.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -18,18 +19,18 @@ export default function Footer() {
   return (
     <div>
       <div
-        className="container-fluid bg-img text-secondary"
+        className="footer-main-container bg-img text-secondary"
         style={{ marginTop: "90px" }}
       >
-        <div className="container">
-          <div className="row gx-5">
-            <div className="col-lg-4 col-md-6 mb-lg-n5">
-              <div className="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary border-inner p-4">
+        <div className="footer-container">
+          <div className="footer-row">
+            <div className="footer-column">
+              <div className="footer-center">
                 <span className="navbar-brand">
-                  <h1 className="m-0 text-uppercase text-white">
+                  <h1 className="footer-heading">
                     <FontAwesomeIcon
                       icon={faBirthdayCake}
-                      className="fa fa-birthday-cake fs-1 text-dark me-3"
+                      className="birthday-icon "
                     />
                     CakeZone
                   </h1>
@@ -39,33 +40,33 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-            <div className="col-lg-8 col-md-6">
-              <div className="row gx-5">
-                <div className="col-lg-4 col-md-12 pt-5 mb-5">
+            <div className="contacts-container">
+              <div className="something">
+                <div className="getintouch">
                   <h4 className="text-primary text-uppercase mb-4">Get In Touch</h4>
-                  <div className="d-flex mb-2">
+                  <div className="contact-info">
                     <FontAwesomeIcon
                       icon={faLocationPin}
-                      className="bi bi-geo-alt text-primary me-2"
+                      className="contact-icon"
                     />
-                    <p className="mb-0">123 Street, New York, USA</p>
+                    <p className="contact-text">123 Street, New York, USA</p>
                   </div>
-                  <div className="d-flex mb-2">
+                  <div className="contact-info">
                     <FontAwesomeIcon
                       icon={faEnvelope}
                       className="bi bi-envelope-open text-primary me-2"
                     />
 
-                    <p className="mb-0">info@example.com</p>
+                  <a href="mailto:info@example.com" className="emailandphone">info@example.com</a>
                   </div>
-                  <div className="d-flex mb-2">
+                  <div className="contact-info">
                     <FontAwesomeIcon
                       icon={faPhone}
                       className="bi bi-telephone text-primary me-2"
                     />
-                    <p className="mb-0">+012 345 67890</p>
+                    <a href="tel:+012 345 6789" className="emailandphone">+012 345 6789</a>
                   </div>
-                  <div className="d-flex mt-4">
+                  <div>
                     <span className="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2">
                       <FontAwesomeIcon
                         icon={faTwitter}
@@ -86,47 +87,48 @@ export default function Footer() {
                     </span>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                  <h4 className="text-primary text-uppercase mb-4">Quick Links</h4>
-                  <div className="d-flex flex-column justify-content-start">
-                    <Link to="/" className="text-secondary mb-2">
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="bi bi-arrow-right text-primary me-2"
-                      />
-                      Home
-                    </Link>
-                    <Link to="/about" className="text-secondary mb-2">
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="bi bi-arrow-right text-primary me-2"
-                      />
-                      About Us
-                    </Link>
-                    <Link to="/cakes" className="text-secondary mb-2">
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="bi bi-arrow-right text-primary me-2"
-                      />
-                      Cakes
-                    </Link>
-                    <Link to="/signup" className="text-secondary mb-2">
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="bi bi-arrow-right text-primary me-2"
-                      />
-                      Sign Up
-                    </Link>
-                    <Link to="/contact" className="text-secondary mb-2">
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="bi bi-arrow-right text-primary me-2"
-                      />
-                      Contact Us
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                <div className="quick-links-container">
+  <h4 className="text-primary text-uppercase">Quick Links</h4>
+  <div className="quick-links">
+    <div className="footer-arrow-link">
+      <FontAwesomeIcon
+        icon={faArrowRight}
+        className="arrow-icon"
+      />
+      <Link to="/" className="footer-link">Home</Link>
+    </div>
+    <div className="footer-arrow-link">
+      <FontAwesomeIcon
+        icon={faArrowRight}
+        className="arrow-icon"
+      />
+      <Link to="/about" className="footer-link">About Us</Link>
+    </div>
+    <div className="footer-arrow-link">
+      <FontAwesomeIcon
+        icon={faArrowRight}
+        className="arrow-icon"
+      />
+      <Link to="/cakes" className="footer-link">Cakes</Link>
+    </div>
+    <div className="footer-arrow-link">
+      <FontAwesomeIcon
+        icon={faArrowRight}
+        className="arrow-icon"
+      />
+      <Link to="/signup" className="footer-link">Sign Up</Link>
+    </div>
+    <div className="footer-arrow-link">
+      <FontAwesomeIcon
+        icon={faArrowRight}
+        className="arrow-icon"
+      />
+      <Link to="/contact" className="footer-link">Contact Us</Link>
+    </div>
+  </div>
+</div>
+
+                <div className="newsletter-container">
                   <h4 className="text-primary text-uppercase mb-4">Newsletter</h4>
                   <p>
                   Sign up now for our sweet cake shop news and special offers today!
