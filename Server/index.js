@@ -5,6 +5,8 @@ const Cakes = require("./Model/Cakes");
 const Orders = require("./Model/Order");
 const Auth = require("./Model/Auth");
 const Wallet = require("./Model/Wallet");
+var nodemailer = require('nodemailer');
+
 
 const PORT = 8080;
 const app = express();
@@ -329,6 +331,59 @@ app.post("/login", async (req, res) => {
     res.status(404).send(error);
   }
 });
+
+
+
+
+app.post("/sendmail", async (req, res) => {
+  try {
+    const {email, subject, message, name} = req.body;
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'autoemail1234321@gmail.com',
+        pass: 'lleyvkvmwiyrpury'
+      }
+    });
+    
+    var mailOptions = {
+      from: 'autoemail1234321@gmail.com',
+      to: "ainevinted@gmail.com",
+      subject: subject,
+      html: `
+      <html>
+        <head>
+          <title> Email <title/>
+        </head>
+
+        <body>
+          <h1>New Query from Cake app</h1>
+          <p>Name of the customer: ${name}</p>
+          <p>Email of the customer: ${email}</p>
+          <p>Subject: ${subject}</p>
+          <p>Message:</p>
+          <p>${message}</p>
+        </body>
+      </html>
+      `
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        res.status(404).send(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.status(200).send("Email sent!");
+      }
+    });
+  } catch (error) {
+    res.status(404).send(error);
+  }
+})
+
+
 
 app.listen(PORT, () => {
   console.log("Api is running on PORT: " + PORT);
