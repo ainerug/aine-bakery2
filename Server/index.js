@@ -351,21 +351,12 @@ app.post("/sendmail", async (req, res) => {
       from: 'autoemail1234321@gmail.com',
       to: "ainevinted@gmail.com",
       subject: subject,
-      html: `
-      <html>
-        <head>
-          <title> Email <title/>
-        </head>
-
-        <body>
-          <h1>New Query from Cake app</h1>
-          <p>Name of the customer: ${name}</p>
-          <p>Email of the customer: ${email}</p>
-          <p>Subject: ${subject}</p>
-          <p>Message:</p>
-          <p>${message}</p>
-        </body>
-      </html>
+      text: `
+          Name of the customer: ${name}
+          Email of the customer: ${email}
+          Subject: ${subject}
+          Message: 
+          ${message}
       `
     };
 
