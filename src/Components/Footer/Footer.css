@@ -263,4 +263,49 @@
         align-items: center;
         font-size:20px;
     }
+
+    .footer-link{
+
+      width:80%;
+        justify-content: center;
+        align-items: center;
+        font-size:20px;
+    
+    }
+  }
+
+  @media screen and (max-width: 488px){
+
+
+    .footer-column {
+      width: 70%; 
+    }
+
+    .getintouch{
+
+      width:80%;
+      justify-content: center;
+      align-items: center;
+      font-size:20px;
+  }
+
+  .quick-links-container{
+
+      
+    width:80%;
+    justify-content: center;
+    align-items: center;
+    font-size:20px;
+}
+
+.footer-link{
+
+  width:80%;
+    justify-content: center;
+    align-items: center;
+    font-size:20px;
+
+}
+
+
   }

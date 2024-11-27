@@ -678,6 +678,11 @@ h6,
   color: white;
 }
 
+.contact-links {
+
+  color: white;
+}
+
 .cake-card {
   display: flex;
   flex-wrap: wrap;
@@ -824,17 +829,21 @@ h6,
 }
 
 @media screen and (max-width: 991px) {
-  .navbar-dark .navbar-nav .nav-link {
+  .navbar-dark .navbar-nav .nav-link{
     font-family: sans-serif;
-    padding: 10px 5px;
+    padding: 10px 10px;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #fff !important;
+    color: #fff;
     outline: none;
     transition: 0.5s;
     border: 1px solid #e88f29;
   }
+
+ 
+
+  
 
   .navbar-collapse {
     display: none;
@@ -849,6 +858,7 @@ h6,
     flex-direction: column; 
     align-items: center;   
   }
+
 
 
   
@@ -868,6 +878,8 @@ h6,
 
   .navbar-toggler {
     padding: 0px;
+    margin-bottom:20px;
+    margin-top:10px;
   }
   .navbar-nav {
     margin-bottom: 20px;
@@ -903,7 +915,12 @@ h6,
   }
 }
 
-@media screen and (max-width: 443px) {
+@media screen and (max-width: 530px) {
+
+  .facts-container{
+
+    display: none;
+  }
   .cake-card {
     width: 27vh;
   }
@@ -990,7 +1007,7 @@ h6,
 }
 
 .container-fluid-hero {
-  height: 68vh;
+  height: 65vh;
 }
 
 .crispy {
@@ -1027,7 +1044,7 @@ h6,
   margin-left: 5px;
   margin-right: 5px;
   letter-spacing: 0.5;
-  height: 55vh;
+  height: 60vh;
 }
 
 .review img {

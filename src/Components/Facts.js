@@ -11,7 +11,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 export default function Facts() {
   return (
     <div>
-      <div className="container-fluid bg-img py-5 mb-5">
+      <div className="facts-container container-fluid bg-img py-5 mb-5">
         <div className="container py-5">
           <Swiper
             slidesPerView={3}
@@ -26,6 +26,8 @@ export default function Facts() {
             speed={1000}
             breakpoints={{
               
+
+            
               530: {
                 slidesPerView: 1, 
                 spaceBetween: 10,

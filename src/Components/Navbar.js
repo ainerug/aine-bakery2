@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import {
+  faBars,
   faBirthdayCake,
   faPhoneSquare,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,9 +16,11 @@ export default function Navbar() {
   const accountType = localStorage.getItem("accountType");
   const navigate = useNavigate();
 
-  const toggleMenu = ()=>{
+  const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-  }
+  };
+
+
 
   const logout = () => {
     localStorage.removeItem("userName");
@@ -90,13 +94,22 @@ export default function Navbar() {
           </h1>
         </span>
         <button
-          className={`navbar-toggler ${isMenuOpen ? "collapsed" : ""}`}
+          className="navbar-toggler"
           type="button"
-          onClick={toggleMenu}>
-            
-          <span className="navbar-toggler-icon"></span>
+          onClick={toggleMenu}
+
+
+        >
+           <FontAwesomeIcon
+            icon={isMenuOpen ? faTimes : faBars}
+            className="fs-3 text-white"
+          />
         </button>
-        <div className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`} id="navbarNav">
+        <div
+          className={`collapse navbar-collapse ${isMenuOpen? "d-block": "d-none"}`}
+          
+        >
+         
           <div className="navbar-nav ms-auto mx-lg-auto py-0">
             <Link
               to="/"
