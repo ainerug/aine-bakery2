@@ -72,7 +72,7 @@ export default function AddCakes() {
         sellerId
       };
       axios
-        .post("http://localhost:8080/cakes", payload)
+        .post("https://cake-shop-kwrq.onrender.com/cakes", payload)
         .then((res) => {
           console.log(res);
           NotificationManager.success("Cake has been uploaded successfully!");

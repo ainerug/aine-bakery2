@@ -15,13 +15,13 @@ export default function CustomerOrders() {
 
   const getData = () => {
     axios
-      .get("http://localhost:8080/getcustomerorders/" + option + "/" + customerId)
+      .get("https://cake-shop-kwrq.onrender.com/getcustomerorders/" + option + "/" + customerId)
       .then(async (res) => {
         console.log(res.data);
 
         const cakeDataPromise = res.data.map(async (item) => {
           const response = await axios.get(
-            "http://localhost:8080/cakes/" + item.cakeId
+            "https://cake-shop-kwrq.onrender.com/cakes/" + item.cakeId
           );
           return response.data;
         });
@@ -68,7 +68,7 @@ export default function CustomerOrders() {
     };
 
     axios
-      .patch("http://localhost:8080/orders/" + id, payload)
+      .patch("https://cake-shop-kwrq.onrender.com/orders/" + id, payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success(

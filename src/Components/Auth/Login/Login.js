@@ -35,7 +35,7 @@ export default function Login() {
     };
 
     axios
-      .post("http://localhost:8080/login/", payload)
+      .post("https://cake-shop-kwrq.onrender.com/login/", payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success("Login successful!");

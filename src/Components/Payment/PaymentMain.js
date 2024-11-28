@@ -23,7 +23,7 @@ export default function PaymentMain() {
 
   const getData = ()=>{
 
-    axios.get("http://localhost:8080/cakes/" + cakeId).then((res)=>{
+    axios.get("https://cake-shop-kwrq.onrender.com/cakes/" + cakeId).then((res)=>{
       console.log(res);
       setOrder(res.data);
 
@@ -39,7 +39,7 @@ export default function PaymentMain() {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:8080/create-payment-intent", {
+    fetch("https://cake-shop-kwrq.onrender.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt", amount: price * 100 }] }),

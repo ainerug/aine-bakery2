@@ -15,13 +15,13 @@ export default function SellerOrders() {
 
   const getData = () => {
     axios
-      .get("http://localhost:8080/getsellerorders/" + option + "/" + sellerId)
+      .get("https://cake-shop-kwrq.onrender.com/getsellerorders/" + option + "/" + sellerId)
       .then(async (res) => {
         console.log(res.data);
 
         const cakeDataPromise = res.data.map(async (item) => {
           const response = await axios.get(
-            "http://localhost:8080/cakes/" + item.cakeId
+            "https://cake-shop-kwrq.onrender.com/cakes/" + item.cakeId
           );
           return response.data;
         });
@@ -69,7 +69,7 @@ export default function SellerOrders() {
     };
 
     axios
-      .patch("http://localhost:8080/orders/" + id, payload)
+      .patch("https://cake-shop-kwrq.onrender.com/orders/" + id, payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success(
@@ -109,7 +109,7 @@ export default function SellerOrders() {
 
     }
 
-    axios.post("http://localhost:8080/wallet/" ,payload).then((res)=>{
+    axios.post("https://cake-shop-kwrq.onrender.com/wallet/" ,payload).then((res)=>{
       console.log('wallet');
       console.log(res);
     }).catch((e)=>{
@@ -129,7 +129,7 @@ export default function SellerOrders() {
 
     }
 
-    axios.patch("http://localhost:8080/wallet/" + orderId ,payload).then((res)=>{
+    axios.patch("https://cake-shop-kwrq.onrender.com/wallet/" + orderId ,payload).then((res)=>{
       console.log('wallet');
       console.log(res);
     }).catch((e)=>{

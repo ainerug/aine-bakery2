@@ -46,7 +46,7 @@ export default function Contact() {
     };
 
     axios
-      .post("http://localhost:8080/sendmail", payload)
+      .post("https://cake-shop-kwrq.onrender.com/sendmail", payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success("Message has been sent successfully!");

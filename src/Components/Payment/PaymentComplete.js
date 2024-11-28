@@ -11,7 +11,7 @@ export default function PaymentComplete() {
 
         const updatePayment = ()=>{
 
-            axios.patch("http://localhost:8080/orders/"+ orderId, {isPaid:true}).then((res)=>{
+            axios.patch("https://cake-shop-kwrq.onrender.com/orders/"+ orderId, {isPaid:true}).then((res)=>{
                 console.log(res);
                 setTimeout(()=>{
                   navigate('/customerorders')

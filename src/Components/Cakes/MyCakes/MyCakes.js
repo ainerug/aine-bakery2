@@ -20,7 +20,7 @@ export default function MyCakes() {
 
     const getData = ()=>{
 
-        axios.get("http://localhost:8080/mycakes/" + sellerId).then((res)=>{
+        axios.get("https://cake-shop-kwrq.onrender.com/mycakes/" + sellerId).then((res)=>{
         console.log(res);
         setCakes(res.data);
 
@@ -40,7 +40,7 @@ export default function MyCakes() {
         navigate("/editcakes", {state: {id:id}});
       }
       const deleteCake = () =>{
-        axios.delete("http://localhost:8080/cakes/" + id).then((res)=>{
+        axios.delete("https://cake-shop-kwrq.onrender.com/cakes/" + id).then((res)=>{
             console.log(res)
             NotificationManager.success("Cake has been deleted!");
             closeModal();

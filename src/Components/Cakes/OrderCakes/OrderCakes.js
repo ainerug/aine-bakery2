@@ -44,7 +44,7 @@ export default function OrderCakes() {
 
   const getData = () => {
     axios
-      .get("http://localhost:8080/cakes/" + id)
+      .get("https://cake-shop-kwrq.onrender.com/cakes/" + id)
       .then((res) => {
         console.log(res.data);
         setCake(res.data);
@@ -72,7 +72,7 @@ export default function OrderCakes() {
     };
     console.log(payload);
     axios
-      .post("http://localhost:8080/orders/", payload)
+      .post("https://cake-shop-kwrq.onrender.com/orders/", payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success("Your order has been placed successfully!");

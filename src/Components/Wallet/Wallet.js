@@ -119,7 +119,7 @@ export default function Wallet() {
 
   const getData = () => {
     axios
-      .get("http://localhost:8080/wallet/" + sellerId)
+      .get("https://cake-shop-kwrq.onrender.com/wallet/" + sellerId)
       .then((res) => {
         console.log(res);
         setWallet(res.data);

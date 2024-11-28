@@ -16,7 +16,7 @@ export default function EditCakes() {
 
   const getData = () => {
     axios
-      .get("http://localhost:8080/cakes/" + id)
+      .get("https://cake-shop-kwrq.onrender.com/cakes/" + id)
       .then((res) => {
         console.log(res.data);
         cakeNameRef.current.value = res.data.cakeName;
@@ -50,7 +50,7 @@ export default function EditCakes() {
       category: selectedOption.value,
     };
     axios
-      .patch("http://localhost:8080/cakes/" + id, payload)
+      .patch("https://cake-shop-kwrq.onrender.com/cakes/" + id, payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success("Cake has been edited!");

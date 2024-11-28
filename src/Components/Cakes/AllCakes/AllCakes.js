@@ -13,7 +13,7 @@ export default function AllCakes() {
 
   const getAllCakes = () => {
     axios
-      .get("http://localhost:8080/cakes/category/" + option)
+      .get("https://cake-shop-kwrq.onrender.com/cakes/category/" + option)
       .then((res) => {
         console.log(res.data);
         setCake(res.data);

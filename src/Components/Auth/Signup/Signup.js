@@ -67,7 +67,7 @@ export default function Signup() {
     };
 
     axios
-      .post("http://localhost:8080/signup/", payload)
+      .post("https://cake-shop-kwrq.onrender.com/signup/", payload)
       .then((res) => {
         console.log(res);
         NotificationManager.success("User has been signed up successfully!");
